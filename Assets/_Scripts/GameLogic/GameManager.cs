@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,10 +20,26 @@ public class GameManager : MonoBehaviour
     private List<Rock> rockValues;
     private int maxRockcounter;
 
+    [Header("ClickShop Upgrades")]
+    public float smashMultiplierAdd = 2;
+    public float hitMultiplierAdd = 1;
+    public int randomDecrease = 7;
+
     private float money = 0;
 
     float counter = 0;
     int smashcounter = 1;
+
+    private float smashMultiplier = 1;
+    private float hitMultiplier = 1;
+
+    public int basepikeUpgrade = 1000;
+    public int baseshovelUpgrade = 1000;
+    public int basecartUpgrade = 1000;
+
+    private int pikeUpgrade = 1000;
+    private int shovelUpgrade = 1000;
+    private int cartUpgrade = 1000;
 
     public float Money { get => money; set {
             money = value;
@@ -30,8 +47,25 @@ public class GameManager : MonoBehaviour
         } 
     }
 
+    public int PikeUpgrade { get => pikeUpgrade; set {
+            pikeUpgrade = value;
+            UiManager.instance.pikeAmount.text = pikeUpgrade + " $";
+        } 
+    }
+    public int ShovelUpgrade { get => shovelUpgrade; set {
+            shovelUpgrade = value;
+            UiManager.instance.showlAmount.text = shovelUpgrade + " $";
+        } 
+    }
+    public int CartUpgrade { get => cartUpgrade; set {
+            cartUpgrade = value;
+            UiManager.instance.cartAmount.text = cartUpgrade + " $";
+        }
+    }
+
     private void Awake()
     {
+
         if (instance != null)
         {
             Destroy(this);
@@ -76,7 +110,7 @@ public class GameManager : MonoBehaviour
 
     private float SelectRandomStone()
     {
-        int randomRock = Random.Range(randomMin,maxRockcounter);
+        int randomRock = UnityEngine.Random.Range(0,maxRockcounter);
         Debug.Log(randomRock);
         foreach (var item in rockValues)
         {
@@ -99,6 +133,10 @@ public class GameManager : MonoBehaviour
     {
         rocklife = defaultRocklife;
         randomMin = defaultRandomMin;
+
+        PikeUpgrade = basepikeUpgrade;
+        ShovelUpgrade = baseshovelUpgrade;
+        CartUpgrade = basepikeUpgrade;
     }
 
     /// <summary>
@@ -107,7 +145,7 @@ public class GameManager : MonoBehaviour
     /// <param name="_value"></param>
     public void SmashRocks(float _value)
     {
-        float smashed = _value / defaultRocklife;
+        float smashed = (_value * smashMultiplier * hitMultiplier) / defaultRocklife;
         int rockCounter = 0;
         if (smashed < 1)
         {
@@ -117,7 +155,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                rocklife = 5;
+                rocklife = defaultRocklife;
                 rockCounter++;
             }
         }
@@ -136,7 +174,7 @@ public class GameManager : MonoBehaviour
             else
             {
                 rockCounter++;
-                rocklife = 5;
+                rocklife = defaultRocklife;
             }  
         }
         RockValues(rockCounter);
@@ -148,5 +186,40 @@ public class GameManager : MonoBehaviour
         {
             Money += SelectRandomStone();
         }
+    }
+
+    public void BuyItem(string _name)
+    {
+        switch (_name)
+        {
+            case "showel":
+                if (!Invoice(ShovelUpgrade) && ShovelUpgrade * baseshovelUpgrade > Math.Pow(baseshovelUpgrade, 4))
+                    break;
+                ShovelUpgrade *= baseshovelUpgrade;
+                maxRockcounter -= randomDecrease;
+                break;
+            case "pike":
+                if (!Invoice(PikeUpgrade) && PikeUpgrade*basepikeUpgrade > Math.Pow(basepikeUpgrade,4))
+                    break;
+                PikeUpgrade *= basepikeUpgrade;
+                smashMultiplier += smashMultiplierAdd;
+                break;
+            case "cart":
+                if (!Invoice(CartUpgrade) && CartUpgrade * basecartUpgrade > Math.Pow(basecartUpgrade, 4))
+                    break;
+                CartUpgrade *= basecartUpgrade;
+                hitMultiplier += hitMultiplierAdd;
+                break;
+        }
+    }
+
+    private bool Invoice(float _amount)
+    {
+        if(money >= _amount)
+        {
+            money -= _amount;
+            return true;
+        }
+        return false;
     }
 }
