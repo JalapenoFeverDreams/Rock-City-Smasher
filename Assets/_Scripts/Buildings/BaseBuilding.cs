@@ -1,8 +1,7 @@
-﻿using System.Linq;
-
-namespace Scripts.Buildings
+﻿namespace Scripts.Buildings
 {
-    using System;
+    using System.Linq;
+
     using UnityEngine;
     
     /// <summary>
