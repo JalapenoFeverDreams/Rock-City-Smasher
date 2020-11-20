@@ -137,7 +137,7 @@ public class GameManager : MonoBehaviour
         PikeUpgrade = basepikeUpgrade;
         ShovelUpgrade = baseshovelUpgrade;
         CartUpgrade = basepikeUpgrade;
-}
+    }
 
     /// <summary>
     /// Decrease rock helath by _value
