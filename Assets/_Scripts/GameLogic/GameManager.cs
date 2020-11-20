@@ -15,10 +15,6 @@ public class GameManager : MonoBehaviour
     public int defaultRandomMin = 0;
     private int randomMin;
 
-    [SerializeField]
-    private float defaultTickRate = 0;
-    private float tickRate;
-
     //Rock values
     private List<Rock> rockValues;
     private int maxRockcounter;
@@ -103,7 +99,6 @@ public class GameManager : MonoBehaviour
     {
         rocklife = defaultRocklife;
         randomMin = defaultRandomMin;
-        tickRate = defaultTickRate;
     }
 
     /// <summary>
