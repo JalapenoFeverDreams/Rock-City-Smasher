@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     private float rocklife;
 
     [SerializeField]
-    int defaultRandomMin = 0;
+    public int defaultRandomMin = 0;
     private int randomMin;
 
     [SerializeField]
