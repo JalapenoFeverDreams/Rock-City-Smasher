@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Scripts.Buildings;
 
 public class UiManager : MonoBehaviour
 {
     public Text moneyText;
     [Header("Click-Shop Values")]
     public GameObject shopWindowClicker;
+    public GameObject townUI;
     public Text pikeAmount;
     public Text showlAmount;
     public Text cartAmount;
@@ -50,8 +52,18 @@ public class UiManager : MonoBehaviour
         GameManager.instance.BuyItem(_name);
     }
 
+    public void BuyBuilding(BaseBuilding building)
+    {
+        GameManager.instance.BuyBuilding(building);
+    }
+
     public void OpenShopWindow()
     {
         shopWindowClicker.SetActive(!shopWindowClicker.activeSelf);   
+    }
+
+    public void BackToTown()
+    {
+        townUI.SetActive(!townUI.activeSelf);
     }
 }

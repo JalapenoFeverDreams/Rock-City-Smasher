@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Scripts.Buildings;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -75,15 +76,13 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
-
-        initGamesValues();
-        SetRockValues();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        initGamesValues();
+        SetRockValues();
     }
 
     // Update is called once per frame
@@ -210,6 +209,18 @@ public class GameManager : MonoBehaviour
                 CartUpgrade *= basecartUpgrade;
                 hitMultiplier += hitMultiplierAdd;
                 break;
+        }
+    }
+
+    /// <summary>
+    /// Buys the defined building.
+    /// </summary>
+    /// <param name="building"></param>
+    public void BuyBuilding(BaseBuilding building)
+    {
+        if(!Invoice(building.Cost))
+        {
+            return;
         }
     }
 

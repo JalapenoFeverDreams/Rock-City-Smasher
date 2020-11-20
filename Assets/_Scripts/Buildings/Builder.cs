@@ -1,17 +1,23 @@
-﻿using System.Linq;
-
-namespace Scripts.Buildings
+﻿namespace Scripts.Buildings
 {
     using UnityEngine;
     
+    /// <summary>
+    /// Defines the <see cref="Builder"/> class.
+    /// </summary>
     public class Builder : MonoBehaviour
     {
         [SerializeField] private LayerMask m_RaycastLayerMask;
         private BaseBuilding m_CurrentBuilding;
+
         public void GetBuilding(BaseBuilding building)
         {
-            var b = Instantiate(building);
-            m_CurrentBuilding = b;
+            if(m_CurrentBuilding)
+            {
+                Destroy(m_CurrentBuilding.gameObject);
+            }
+
+            m_CurrentBuilding = Instantiate(building);
         }
 
         private void Update()
@@ -21,27 +27,31 @@ namespace Scripts.Buildings
 
         private void Build()
         {
-            if (!m_CurrentBuilding)
+            if (m_CurrentBuilding)
             {
-                return;
+                if(Input.GetKeyDown(KeyCode.Escape))
+                {
+                    Destroy(m_CurrentBuilding.gameObject);
+                    m_CurrentBuilding = null;
+                    return;
+                }
+
+                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out var hit, Mathf.Infinity, m_RaycastLayerMask))
+                {
+                    var tile = hit.transform.GetComponent<Tile>();
+                    if(!tile.Occupied)
+                    {
+                        m_CurrentBuilding.transform.position = hit.transform.position + new Vector3(0, 1, 0);
+
+                        if (Input.GetMouseButtonDown(0))
+                        {
+                            m_CurrentBuilding.PlaceBuilding();
+                            tile.Occupied = true;
+                            m_CurrentBuilding = null;
+                        }
+                    }
+                }
             }
-
-            if (!Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out var hit, Mathf.Infinity,
-                m_RaycastLayerMask))
-            {
-                return;
-            }
-
-            m_CurrentBuilding.transform.position = hit.point;
-            if (!Input.GetMouseButtonDown(0))
-            {
-                return;
-            }
-
-            BuildingManager.Instance.Buildings.Count(x => x.BuildingType == BuildingType.House);
-
-            m_CurrentBuilding.PlaceBuilding();
-            m_CurrentBuilding = null;
         }
     }
 }
