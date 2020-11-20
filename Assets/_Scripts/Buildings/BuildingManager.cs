@@ -38,19 +38,6 @@
         /// Gets or sets the Buildings set in the game.
         /// </summary>
         public List<BaseBuilding> Buildings { get; set; } = new List<BaseBuilding>();
-
-        private void Awake()
-        {
-            if(Instance == null )
-            {
-                Instance = this;
-                DontDestroyOnLoad(gameObject);
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
-        }
     }
 }
 

@@ -13,6 +13,7 @@ namespace Scripts.Buildings
         #region Private Fields
         
         [SerializeField] private int m_InitialCost;
+        [SerializeField] private float m_CostIncreaseFactor;
         [SerializeField] private BuildingType m_BuildingType;
 
         #endregion
@@ -23,11 +24,16 @@ namespace Scripts.Buildings
         /// Gets the Initial Cost of the Building.
         /// </summary>
         public int InitialCost => m_InitialCost;
+
+        /// <summary>
+        /// Gets the Cost Increase Factor of the building.
+        /// </summary>
+        public float CostIncreaseFactor => m_CostIncreaseFactor;
         
         /// <summary>
         /// Gets the Building Cost.
         /// </summary>
-        public int Cost => (int) Math.Pow(InitialCost, BuildingManager.Instance.Buildings.Count(x => x.BuildingType == BuildingType));
+        public int Cost => (int)(InitialCost * Mathf.Pow(m_CostIncreaseFactor, BuildingManager.Instance.Buildings.Count(x => x.BuildingType == BuildingType)));
 
         /// <summary>
         /// Gets the type of the building.
@@ -39,13 +45,12 @@ namespace Scripts.Buildings
         /// <summary>
         /// This method Upgrades the Player values.
         /// </summary>
-        protected abstract void UpgradeValues();
+        protected virtual void UpgradeValues() { }
 
         public void PlaceBuilding()
         {
             UpgradeValues();
             BuildingManager.Instance.Buildings.Add(this);
-            Debug.Log(Cost);
         }
     }
 }

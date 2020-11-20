@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7656396848691099300}
   - component: {fileID: 7171880282233407822}
   - component: {fileID: 4605261951547420183}
-  - component: {fileID: 97647255733959733}
+  - component: {fileID: 2104229396758790375}
   m_Layer: 8
-  m_Name: House
+  m_Name: Entertainment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d0d9a9b74a72914ea0f9c1a482e05b0, type: 2}
+  - {fileID: 2100000, guid: c1342f8b772662e4aa2c16d41d69ab97, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,7 +96,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &97647255733959733
+--- !u!114 &2104229396758790375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,9 +105,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7377951289068034977}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba8bc19b5a2900645adebc6f5c4d0a8c, type: 3}
+  m_Script: {fileID: 11500000, guid: a58732ea43d4a474593a67bfb732f1c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InitialCost: 50
+  m_InitialCost: 500
   m_CostIncreaseFactor: 12.5
-  m_BuildingType: 1
+  m_BuildingType: 2
