@@ -27,6 +27,10 @@ public class UiManager : MonoBehaviour
     public Text streetCost;
     public static UiManager instance;
 
+    [Header("Details")]
+    public GameObject details;
+    public Text detailsDescr;
+
     [Header("Values")]
     [SerializeField] private Text m_PeopleCountToLimitText;
 
@@ -51,6 +55,8 @@ public class UiManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+        details.SetActive(false);
+        shopWindowClicker.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -107,7 +113,9 @@ public class UiManager : MonoBehaviour
 
     public void OpenShopWindow()
     {
-        shopWindowClicker.SetActive(!shopWindowClicker.activeSelf);   
+        shopWindowClicker.SetActive(!shopWindowClicker.activeSelf);
+        details.SetActive(false);
+        rocks.SetActive(!shopWindowClicker.activeSelf);
     }
 
     public void BackToTown()
@@ -116,5 +124,11 @@ public class UiManager : MonoBehaviour
         rocks.SetActive(!townUI.activeSelf);
         shop.SetActive(!townUI.activeSelf);
         backToTown.SetActive(!townUI.activeSelf);
+    }
+
+    public void setDetailsText(string _text)
+    {
+        details.SetActive(true);
+        detailsDescr.text = _text;
     }
 }

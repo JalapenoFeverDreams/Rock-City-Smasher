@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &424055822 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5515684055682899120, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
+  m_PrefabInstance: {fileID: 433437304}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &433437304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -226,6 +231,14 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6560911262459956170, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
+      propertyPath: rocks
+      value: 
+      objectReference: {fileID: 424055822}
+    - target: {fileID: 8747973974581530481, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1004568346}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
 --- !u!1 &594438627
