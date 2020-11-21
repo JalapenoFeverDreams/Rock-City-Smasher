@@ -9,14 +9,24 @@ public class UiManager : MonoBehaviour
     public Text moneyText;
     [Header("Click-Shop Values")]
     public GameObject shopWindowClicker;
+    public Text pikeAmount;
+    public Text showlAmount;
+    public Text cartAmount;
+
+    [Header("Buttons")]
     public GameObject townUI;
     public GameObject backToTown;
     public GameObject rocks;
     public GameObject shop;
-    public Text pikeAmount;
-    public Text showlAmount;
-    public Text cartAmount;
+
+    [Header("Building Costs")]
+    public Text houseCost;
+    public Text farmCost;
+    public Text entertainmentCost;
+    public Text marketplaceCost;
+    public Text streetCost;
     public static UiManager instance;
+
 
     private void Awake()
     {
@@ -48,6 +58,29 @@ public class UiManager : MonoBehaviour
         pikeAmount.text = GameManager.instance.basepikeUpgrade + " $";
         showlAmount.text = GameManager.instance.baseshovelUpgrade + " $";
         cartAmount.text = GameManager.instance.basecartUpgrade + " $";
+    }
+
+    public void SetBuildingCost(BaseBuilding building)
+    {
+        int cost = building.Cost;
+        switch(building.BuildingType)
+        {
+            case BuildingType.House:
+                houseCost.text = $"House ({cost}$)";
+                break;
+            case BuildingType.Farm:
+                farmCost.text = $"Farm ({cost}$)";
+                break;
+            case BuildingType.Entertainment:
+                entertainmentCost.text = $"Entertainment ({cost}$)";
+                break;
+            case BuildingType.Marketplace:
+                marketplaceCost.text = $"Marketplace ({cost}$)";
+                break;
+            case BuildingType.Street:
+                streetCost.text = $"Street ({cost}$)";
+                break;
+        }        
     }
 
     public void BuyShopItem(string _name)

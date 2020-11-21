@@ -12,6 +12,7 @@
 
         public void GetBuilding(BaseBuilding building)
         {
+            GameManager.instance.SetBuildingCost(building);
             if (GameManager.instance.BuyBuilding(building))
             {
                 if (m_CurrentBuilding)
@@ -50,6 +51,7 @@
                         if (Input.GetMouseButtonDown(0))
                         {
                             m_CurrentBuilding.PlaceBuilding();
+                            GameManager.instance.SetBuildingCost(m_CurrentBuilding);
                             tile.Occupied = true;
                             m_CurrentBuilding = null;
                         }

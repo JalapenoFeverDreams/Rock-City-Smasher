@@ -225,6 +225,15 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
+    /// <summary>
+    /// Sets the current cost for the building.
+    /// </summary>
+    /// <param name="building"></param>
+    public void SetBuildingCost(BaseBuilding building)
+    {
+        UiManager.instance.SetBuildingCost(building);
+    }
+
     private bool Invoice(float _amount)
     {
         if(Money >= _amount)
