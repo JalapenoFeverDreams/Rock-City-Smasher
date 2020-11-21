@@ -206,10 +206,16 @@ public class GameManager : MonoBehaviour
 
     private void RockValues(int _amount)
     {
+        var multiplier = 1f;
+
+        var farmBuilding = BuildingManager.Instance.Buildings.FirstOrDefault(x => x.BuildingType == BuildingType.Farm);
+        if(farmBuilding != null)
+        {
+            multiplier = Mathf.Pow((farmBuilding as FarmBuilding).MaterialMultiplyFactor, BuildingManager.Instance.Buildings.Count(x => x.BuildingType == BuildingType.Farm));
+        }
+
         for (int i = 0; i < _amount; i++)
         {
-            var farmBuilding = BuildingManager.Instance.Buildings.FirstOrDefault(x => x.BuildingType == BuildingType.Farm);
-            var multiplier = Mathf.Pow((farmBuilding as FarmBuilding).MaterialMultiplyFactor, BuildingManager.Instance.Buildings.Count(x => x.BuildingType == BuildingType.Farm));
             Money += SelectRandomStone() * multiplier;
         }
     }
