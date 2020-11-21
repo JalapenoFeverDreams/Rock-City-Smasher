@@ -7,8 +7,10 @@
     /// <summary>
     /// Defines the <see cref="BuildingManager"/> singleton.
     /// </summary>
+    [RequireComponent(typeof(FloorGenerator))]
     public class BuildingManager : MonoBehaviour
     {
+        private FloorGenerator m_FloorGenerator;
         private static BuildingManager m_Instance;
 
         /// <summary>
@@ -33,11 +35,21 @@
             }
             private set => m_Instance = value;
         }
-        
+
         /// <summary>
         /// Gets or sets the Buildings set in the game.
         /// </summary>
         public List<BaseBuilding> Buildings { get; set; } = new List<BaseBuilding>();
+
+        /// <summary>
+        /// Gets or sets a value indicating if Random Upgrades are possible.
+        /// </summary>
+        public bool RandomUpgradesPossible { get; set; }
+
+        private void Awake()
+        {
+            m_FloorGenerator = GetComponent<FloorGenerator>();
+        }
     }
 }
 

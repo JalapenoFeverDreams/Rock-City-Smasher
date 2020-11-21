@@ -7,10 +7,23 @@
     /// </summary>
     public class FarmBuilding : BaseBuilding
     {
+        [SerializeField] private int m_PeopleCountIncrease = 5;
+        [SerializeField] private int m_MaterialMultiplyFactorAsPercent = 2;
+
+        /// <summary>
+        /// Gets the People Count increase value.
+        /// </summary>
+        public int PeopleCountIncrease => m_PeopleCountIncrease;
+
+        /// <summary>
+        /// Gets the material multiply factor.
+        /// </summary>
+        public int MaterialMultiplyFactor => 1 - m_MaterialMultiplyFactorAsPercent / 100;
+
         /// <inheritdoc/>
         protected override void UpgradeValues()
         {
-            Debug.Log("Farm built");
+            GameManager.instance.PeopleCount += PeopleCountIncrease;
         }
     }
 }

@@ -27,6 +27,18 @@ public class UiManager : MonoBehaviour
     public Text streetCost;
     public static UiManager instance;
 
+    [Header("Values")]
+    [SerializeField] private Text m_PeopleCountToLimitText;
+
+    /// <summary>
+    /// Gets or sets the People count to limit text object.
+    /// </summary>
+    public Text PeopleCountToLimitText
+    {
+        get => m_PeopleCountToLimitText;
+        set => m_PeopleCountToLimitText = value;
+    }
+
 
     private void Awake()
     {
@@ -66,19 +78,19 @@ public class UiManager : MonoBehaviour
         switch(building.BuildingType)
         {
             case BuildingType.House:
-                houseCost.text = $"House ({cost}$)";
+                houseCost.text = $"House ({cost} $)";
                 break;
             case BuildingType.Farm:
-                farmCost.text = $"Farm ({cost}$)";
+                farmCost.text = $"Farm ({cost} $) - (5 P)";
                 break;
             case BuildingType.Entertainment:
-                entertainmentCost.text = $"Entertainment ({cost}$)";
+                entertainmentCost.text = $"Entertainment ({cost} $)";
                 break;
             case BuildingType.Marketplace:
-                marketplaceCost.text = $"Marketplace ({cost}$)";
+                marketplaceCost.text = $"Marketplace ({cost }$)";
                 break;
             case BuildingType.Street:
-                streetCost.text = $"Street ({cost}$)";
+                streetCost.text = $"Street ({cost} $)";
                 break;
         }        
     }

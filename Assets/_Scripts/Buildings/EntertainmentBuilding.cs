@@ -1,5 +1,7 @@
 ﻿namespace Scripts.Buildings
 {
+    using System.Linq;
+
     using UnityEngine;
 
     /// <summary>
@@ -7,10 +9,20 @@
     /// </summary>
     public class EntertainmentBuilding : BaseBuilding
     {
+        [SerializeField] private float m_HouseTimerIntervalDecreaseFactorInPercent = 5;
+
+        private float HouseTimerIntervalDecreaseFactor
+        {
+            get => 1 - m_HouseTimerIntervalDecreaseFactorInPercent / 100;
+        }
+
         /// <inheritdoc/>
         protected override void UpgradeValues()
         {
-            Debug.Log("Entertainment built.");
+            foreach(var house in BuildingManager.Instance.Buildings.Where(x => x.BuildingType == BuildingType.House))
+            {
+                (house as HouseBuilding).WaitTimerForClicks *= HouseTimerIntervalDecreaseFactor;
+            }
         }
     }
 }
