@@ -87,7 +87,7 @@
                 && rightNeighbour != null && rightNeighbour.Building != null && rightNeighbour.Building.BuildingType == BuildingType.Street
                 && leftNeighbour != null && leftNeighbour.Building != null && leftNeighbour.Building.BuildingType == BuildingType.Street)
             {
-                return GetCrossingStreet(street, topNeighbour, rightNeighbour, bottomNeighbour, leftNeighbour);
+                return GetCrossingStreet(street, tile, topNeighbour, rightNeighbour, bottomNeighbour, leftNeighbour);
             }
 
             // Bottom, Right and Top Neighbours are streets
@@ -96,7 +96,7 @@
                 && rightNeighbour != null && rightNeighbour.Building != null && rightNeighbour.Building.BuildingType == BuildingType.Street
                 && (leftNeighbour == null || leftNeighbour.Building == null || leftNeighbour.Building.BuildingType != BuildingType.Street))
             {
-                return GetTCrossingStreet(street, new Vector3(0, 0, 0), topNeighbour, rightNeighbour, bottomNeighbour, null);
+                return GetTCrossingStreet(street, new Vector3(0, 0, 0), tile, topNeighbour, rightNeighbour, bottomNeighbour, null);
             }
 
             // Bottom, Right and Left Neighbours are streets
@@ -105,7 +105,7 @@
                 && rightNeighbour != null && rightNeighbour.Building != null && rightNeighbour.Building.BuildingType == BuildingType.Street
                 && (topNeighbour == null || topNeighbour.Building == null || topNeighbour.Building.BuildingType != BuildingType.Street))
             {
-                return GetTCrossingStreet(street, new Vector3(0, 90, 0), null, rightNeighbour, bottomNeighbour, leftNeighbour);
+                return GetTCrossingStreet(street, new Vector3(0, 90, 0), tile, null, rightNeighbour, bottomNeighbour, leftNeighbour);
             }
 
             // Bottom, Left and Top Neighbours are streets
@@ -114,7 +114,7 @@
                 && topNeighbour != null && topNeighbour.Building != null && topNeighbour.Building.BuildingType == BuildingType.Street
                 && (rightNeighbour == null || rightNeighbour.Building == null || rightNeighbour.Building.BuildingType != BuildingType.Street))
             {
-                return GetTCrossingStreet(street, new Vector3(0, 180, 0), topNeighbour, null, bottomNeighbour, leftNeighbour);
+                return GetTCrossingStreet(street, new Vector3(0, 180, 0), tile, topNeighbour, null, bottomNeighbour, leftNeighbour);
             }
 
             // Right, Left and Top Neighbours are streets
@@ -123,7 +123,7 @@
                 && topNeighbour != null && topNeighbour.Building != null && topNeighbour.Building.BuildingType == BuildingType.Street
                 && (bottomNeighbour == null || bottomNeighbour.Building == null || bottomNeighbour.Building.BuildingType != BuildingType.Street))
             {
-                return GetTCrossingStreet(street, new Vector3(0, 270, 0), topNeighbour, rightNeighbour, null, leftNeighbour);
+                return GetTCrossingStreet(street, new Vector3(0, 270, 0), tile, topNeighbour, rightNeighbour, null, leftNeighbour);
             }
 
             // Bottom Neighbour and Top Neighbour are streets, every one else is something else
@@ -132,7 +132,7 @@
                 && (rightNeighbour == null || rightNeighbour.Building == null || rightNeighbour.Building.BuildingType != BuildingType.Street)
                 && (leftNeighbour == null || leftNeighbour.Building == null || leftNeighbour.Building.BuildingType != BuildingType.Street))
             {
-                return GetNormalStreet(street, bottomNeighbour, topNeighbour, new Vector3(0,90,0));
+                return GetNormalStreet(street, tile, bottomNeighbour, topNeighbour, new Vector3(0,90,0));
             }
             
             // Left Neighbour and Right Neighbour are streets, every one else is something else
@@ -141,7 +141,43 @@
                 && (bottomNeighbour == null || bottomNeighbour.Building == null || bottomNeighbour.Building.BuildingType != BuildingType.Street)
                 && (topNeighbour == null || topNeighbour.Building == null || topNeighbour.Building.BuildingType != BuildingType.Street))
             {
-                return GetNormalStreet(street, leftNeighbour, rightNeighbour, new Vector3(0, 0, 0));
+                return GetNormalStreet(street, tile, leftNeighbour, rightNeighbour, new Vector3(0, 0, 0));
+            }
+
+            // Left Neighbour and Top Neighbour are streets, every one else is something else
+            if (leftNeighbour != null && leftNeighbour.Building != null && leftNeighbour.Building.BuildingType == BuildingType.Street
+                && topNeighbour != null && topNeighbour.Building != null && topNeighbour.Building.BuildingType == BuildingType.Street
+                && (bottomNeighbour == null || bottomNeighbour.Building == null || bottomNeighbour.Building.BuildingType != BuildingType.Street)
+                && (rightNeighbour == null || rightNeighbour.Building == null || rightNeighbour.Building.BuildingType != BuildingType.Street))
+            {
+                return GetCurveStreet(street, tile, leftNeighbour, topNeighbour, new Vector3(0, 180, 0));
+            }
+
+            // Left Neighbour and Bottom Neighbour are streets, every one else is something else
+            if (leftNeighbour != null && leftNeighbour.Building != null && leftNeighbour.Building.BuildingType == BuildingType.Street
+                && bottomNeighbour != null && bottomNeighbour.Building != null && bottomNeighbour.Building.BuildingType == BuildingType.Street
+                && (topNeighbour == null || topNeighbour.Building == null || topNeighbour.Building.BuildingType != BuildingType.Street)
+                && (rightNeighbour == null || rightNeighbour.Building == null || rightNeighbour.Building.BuildingType != BuildingType.Street))
+            {
+                return GetCurveStreet(street, tile, bottomNeighbour, leftNeighbour, new Vector3(0, 90, 0));
+            }
+
+            // Right Neighbour and Top Neighbour are streets, every one else is something else
+            if (rightNeighbour != null && rightNeighbour.Building != null && rightNeighbour.Building.BuildingType == BuildingType.Street
+                && topNeighbour != null && topNeighbour.Building != null && topNeighbour.Building.BuildingType == BuildingType.Street
+                && (bottomNeighbour == null || bottomNeighbour.Building == null || bottomNeighbour.Building.BuildingType != BuildingType.Street)
+                && (leftNeighbour == null || leftNeighbour.Building == null || leftNeighbour.Building.BuildingType != BuildingType.Street))
+            {
+                return GetCurveStreet(street, tile, rightNeighbour, topNeighbour, new Vector3(0, 270, 0));
+            }
+
+            // Right Neighbour and Bottom Neighbour are streets, every one else is something else
+            if (rightNeighbour != null && rightNeighbour.Building != null && rightNeighbour.Building.BuildingType == BuildingType.Street
+                && bottomNeighbour != null && bottomNeighbour.Building != null && bottomNeighbour.Building.BuildingType == BuildingType.Street
+                && (topNeighbour == null || topNeighbour.Building == null || topNeighbour.Building.BuildingType != BuildingType.Street)
+                && (leftNeighbour == null || leftNeighbour.Building == null || leftNeighbour.Building.BuildingType != BuildingType.Street))
+            {
+                return GetCurveStreet(street, tile, bottomNeighbour, rightNeighbour, new Vector3(0, 0, 0));
             }
 
             // Bottom Neighbour is street, every one else is something else
@@ -189,7 +225,24 @@
             return m_StreetVariations.FirstOrDefault(x => x.name.Equals("Street"));
         }
 
-        private BaseBuilding GetTCrossingStreet(BaseBuilding street, Vector3 rotation, Tile topNeighbour = null, Tile rightNeighbour = null, Tile bottomNeighbour = null, Tile leftNeighbour = null)
+        private BaseBuilding GetCurveStreet(BaseBuilding street, Tile tile, Tile neighbour1, Tile neighbour2, Vector3 rotation)
+        {
+            if(!street.name.EndsWith("Curve"))
+            {
+                Destroy(m_CurrentBuilding?.gameObject);
+                m_CurrentBuilding = null;
+            }
+
+            street = m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("Curve"));
+            street.transform.eulerAngles = rotation;
+
+            ChangeNeighbourBuilding(tile, neighbour1);
+            ChangeNeighbourBuilding(tile, neighbour2);
+
+            return street;
+        }
+
+        private BaseBuilding GetTCrossingStreet(BaseBuilding street, Vector3 rotation, Tile tile, Tile topNeighbour = null, Tile rightNeighbour = null, Tile bottomNeighbour = null, Tile leftNeighbour = null)
         {
             if (!street.name.EndsWith("CrossingT"))
             {
@@ -201,28 +254,28 @@
             street.transform.eulerAngles = rotation;
             if (topNeighbour != null)
             {
-                topNeighbour.Building.transform.eulerAngles = rotation + new Vector3(0, 90, 0);
+                ChangeNeighbourBuilding(tile, topNeighbour);
             }
 
             if(bottomNeighbour != null)
             {
-                bottomNeighbour.Building.transform.eulerAngles = rotation + new Vector3(0, 90, 0);
+                ChangeNeighbourBuilding(tile, bottomNeighbour);
             }
 
             if (leftNeighbour != null)
             {
-                leftNeighbour.Building.transform.eulerAngles = rotation;
+                ChangeNeighbourBuilding(tile, leftNeighbour);
             }
 
             if (rightNeighbour != null)
             {
-                rightNeighbour.Building.transform.eulerAngles = rotation;
+                ChangeNeighbourBuilding(tile, rightNeighbour);
             }
 
             return street;
         }
 
-        private BaseBuilding GetCrossingStreet(BaseBuilding street, Tile topNeighbour, Tile rightNeighbour, Tile bottomNeighbour, Tile leftNeighbour)
+        private BaseBuilding GetCrossingStreet(BaseBuilding street, Tile tile, Tile topNeighbour, Tile rightNeighbour, Tile bottomNeighbour, Tile leftNeighbour)
         {
             if (!street.name.EndsWith("CrossingNormal"))
             {
@@ -231,14 +284,16 @@
             }
 
             street = m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("CrossingNormal"));
-            topNeighbour.Building.transform.eulerAngles = new Vector3(0, 90, 0);
-            bottomNeighbour.Building.transform.eulerAngles = new Vector3(0, 90, 0);
-            rightNeighbour.Building.transform.eulerAngles = new Vector3(0, 0, 0);
-            leftNeighbour.Building.transform.eulerAngles = new Vector3(0, 0, 0);
+
+            ChangeNeighbourBuilding(tile, topNeighbour);
+            ChangeNeighbourBuilding(tile, bottomNeighbour);
+            ChangeNeighbourBuilding(tile, rightNeighbour);
+            ChangeNeighbourBuilding(tile, leftNeighbour);
+
             return street;
         }
 
-        private BaseBuilding GetNormalStreet(BaseBuilding street, Tile neighbour1, Tile neighbour2, Vector3 rotation)
+        private BaseBuilding GetNormalStreet(BaseBuilding street, Tile tile, Tile neighbour1, Tile neighbour2, Vector3 rotation)
         {
             if(!street.name.Equals("Street"))
             {
@@ -248,8 +303,8 @@
 
             street = m_StreetVariations.FirstOrDefault(x => x.name.Equals("Street"));
             street.transform.eulerAngles = rotation;
-            neighbour1.Building.transform.eulerAngles = rotation;
-            neighbour2.Building.transform.eulerAngles = rotation;
+            ChangeNeighbourBuilding(tile, neighbour1);
+            ChangeNeighbourBuilding(tile, neighbour2);
             return street;
         }
 
@@ -274,6 +329,50 @@
             var rightNeighbour = neigbour.Neighbours["right"];
             var topNeighbour = neigbour.Neighbours["top"];
             var bottomNeighbour = neigbour.Neighbours["bottom"];
+
+            #region No Neighbour
+
+            // Bottom neighbour is tile
+            if ((leftNeighbour == null || leftNeighbour.Building == null || leftNeighbour.Building.BuildingType != BuildingType.Street)
+                && (rightNeighbour == null || rightNeighbour.Building == null || rightNeighbour.Building.BuildingType != BuildingType.Street)
+                && (topNeighbour == null || topNeighbour.Building == null || topNeighbour.Building.BuildingType != BuildingType.Street)
+                && bottomNeighbour == tile)
+            {
+                ExecuteBuildingChange(neigbour, new Vector3(0, 90, 0), "DeadEnd");
+                return;
+            }
+
+            // Top neighbour is tile
+            if ((leftNeighbour == null || leftNeighbour.Building == null || leftNeighbour.Building.BuildingType != BuildingType.Street)
+                && (rightNeighbour == null || rightNeighbour.Building == null || rightNeighbour.Building.BuildingType != BuildingType.Street)
+                && (bottomNeighbour == null || bottomNeighbour.Building == null || bottomNeighbour.Building.BuildingType != BuildingType.Street)
+                && topNeighbour == tile)
+            {
+                ExecuteBuildingChange(neigbour, new Vector3(0, 270, 0), "DeadEnd");
+                return;
+            }
+
+            // Left neighbour is tile
+            if ((topNeighbour == null || topNeighbour.Building == null || topNeighbour.Building.BuildingType != BuildingType.Street)
+                && (rightNeighbour == null || rightNeighbour.Building == null || rightNeighbour.Building.BuildingType != BuildingType.Street)
+                && (bottomNeighbour == null || bottomNeighbour.Building == null || bottomNeighbour.Building.BuildingType != BuildingType.Street)
+                && leftNeighbour == tile)
+            {
+                ExecuteBuildingChange(neigbour, new Vector3(0, 180, 0), "DeadEnd");
+                return;
+            }
+
+            // Right neighbour is tile
+            if ((topNeighbour == null || topNeighbour.Building == null || topNeighbour.Building.BuildingType != BuildingType.Street)
+                && (leftNeighbour == null || leftNeighbour.Building == null || leftNeighbour.Building.BuildingType != BuildingType.Street)
+                && (bottomNeighbour == null || bottomNeighbour.Building == null || bottomNeighbour.Building.BuildingType != BuildingType.Street)
+                && rightNeighbour == tile)
+            {
+                ExecuteBuildingChange(neigbour, new Vector3(0, 0, 0), "DeadEnd");
+                return;
+            }
+
+            #endregion
 
             #region One Neighbour
 
@@ -383,7 +482,7 @@
                && (topNeighbour == null || topNeighbour.Building == null || topNeighbour.Building.BuildingType != BuildingType.Street)
                && leftNeighbour == tile)
             {
-                ExecuteBuildingChange(neigbour, new Vector3(0, 270, 0), "Curve");
+                ExecuteBuildingChange(neigbour, new Vector3(0, 90, 0), "Curve");
                 return;
             }
 
