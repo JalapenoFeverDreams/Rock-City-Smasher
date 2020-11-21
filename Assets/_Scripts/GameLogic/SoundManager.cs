@@ -26,6 +26,11 @@ public class SoundManager : MonoBehaviour
     [Header("Buy Fail")]
     public AudioSource buyFailSource;
     public List<AudioClip> buyFail;
+
+    [Header("AmbienhtSound")]
+    public AudioSource AmbientSource;
+    public AudioClip AmbientClip;
+
     private void Awake()
     {
         if (instance != null)
