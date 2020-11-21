@@ -31,6 +31,12 @@ public class UiManager : MonoBehaviour
     public GameObject details;
     public Text detailsDescr;
 
+    [Header("RockSmashStates")]
+    [SerializeField]
+    public List<Sprite> rockState;
+    [SerializeField]
+    public Image smashableRock;
+
     [Header("Values")]
     [SerializeField] private Text m_PeopleCountToLimitText;
 
