@@ -225,19 +225,19 @@ public class GameManager : MonoBehaviour
         switch (_name)
         {
             case "showel":
-                if (!Invoice(ShovelUpgrade) && ShovelUpgrade * baseshovelUpgrade > Math.Pow(baseshovelUpgrade, 4))
+                if (!Invoice(ShovelUpgrade) || ShovelUpgrade * baseshovelUpgrade > Math.Pow(baseshovelUpgrade, 4))
                     break;
                 ShovelUpgrade *= baseshovelUpgrade;
                 maxRockcounter -= randomDecrease;
                 break;
             case "pike":
-                if (!Invoice(PikeUpgrade) && PikeUpgrade*basepikeUpgrade > Math.Pow(basepikeUpgrade,4))
+                if (!Invoice(PikeUpgrade) || PikeUpgrade*basepikeUpgrade > Math.Pow(basepikeUpgrade,4))
                     break;
                 PikeUpgrade *= basepikeUpgrade;
                 smashMultiplier += smashMultiplierAdd;
                 break;
             case "cart":
-                if (!Invoice(CartUpgrade) && CartUpgrade * basecartUpgrade > Math.Pow(basecartUpgrade, 4))
+                if (!Invoice(CartUpgrade) || CartUpgrade * basecartUpgrade > Math.Pow(basecartUpgrade, 4))
                     break;
                 CartUpgrade *= basecartUpgrade;
                 hitMultiplier += hitMultiplierAdd;
