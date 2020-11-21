@@ -1,10 +1,10 @@
 # MagicaVoxel @ Ephtracy
 
 # group
-g HouseWin_Win
+g HousePinkWin_Win
 
 # material
-mtllib HouseWin_Win.mtl
+mtllib HousePinkWin_Win.mtl
 usemtl palette
 
 # normals
