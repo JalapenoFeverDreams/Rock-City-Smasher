@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
-using Scripts.Buildings;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -26,9 +25,7 @@ public class GameManager : MonoBehaviour
     public float hitMultiplierAdd = 1;
     public int randomDecrease = 7;
 
-    private float money = 1000000;
-    private int m_PeopleCount = 0;
-    private int m_PeopleLimit = 0;
+    private float money = 0;
 
     float counter = 0;
     int smashcounter = 1;
@@ -47,30 +44,7 @@ public class GameManager : MonoBehaviour
     public float Money { get => money; set {
             money = value;
             UiManager.instance.moneyText.text = value + " $";
-        }
-    }
-
-    /// <summary>
-    /// Gets or sets the current people count in the game.
-    /// </summary>
-    public int PeopleCount 
-    { 
-        get => m_PeopleCount; 
-        set 
-        {
-            m_PeopleCount = value;
-            UiManager.instance.PeopleCountToLimitText.text = $"{value} / {PeopleLimit} P";
         } 
-    }
-
-    public int PeopleLimit
-    {
-        get => m_PeopleLimit;
-        set
-        {
-            m_PeopleLimit = value;
-            UiManager.instance.PeopleCountToLimitText.text = $"{PeopleCount} / {value} P ";
-        }
     }
 
     public int PikeUpgrade { get => pikeUpgrade; set {
@@ -101,13 +75,15 @@ public class GameManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(this.gameObject);
         }
+
+        initGamesValues();
+        SetRockValues();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        initGamesValues();
-        SetRockValues();
+
     }
 
     // Update is called once per frame
@@ -164,7 +140,7 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Decrease rock health by _value
+    /// Decrease rock helath by _value
     /// </summary>
     /// <param name="_value"></param>
     public void SmashRocks(float _value)
@@ -206,17 +182,9 @@ public class GameManager : MonoBehaviour
 
     private void RockValues(int _amount)
     {
-        var multiplier = 1f;
-
-        var farmBuilding = BuildingManager.Instance.Buildings.FirstOrDefault(x => x.BuildingType == BuildingType.Farm);
-        if(farmBuilding != null)
-        {
-            multiplier = Mathf.Pow((farmBuilding as FarmBuilding).MaterialMultiplyFactor, BuildingManager.Instance.Buildings.Count(x => x.BuildingType == BuildingType.Farm));
-        }
-
         for (int i = 0; i < _amount; i++)
         {
-            Money += SelectRandomStone() * multiplier;
+            Money += SelectRandomStone();
         }
     }
 
@@ -245,51 +213,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Buys the defined building.
-    /// </summary>
-    /// <param name="building"></param>
-    public bool BuyBuilding(BaseBuilding building)
-    {
-        if (building.BuildingType == BuildingType.Farm && !EnoughPlace((building as FarmBuilding).PeopleCountIncrease))
-        {
-            return false;
-        }
-
-        if (!Invoice(building.Cost))
-        {
-            return false;
-        }
-
-        return true;
-    }
-
-    /// <summary>
-    /// Sets the current cost for the building.
-    /// </summary>
-    /// <param name="building"></param>
-    public void SetBuildingCost(BaseBuilding building)
-    {
-        UiManager.instance.SetBuildingCost(building);
-    }
-
     private bool Invoice(float _amount)
     {
-        if(Money >= _amount)
+        if(money >= _amount)
         {
-            Money -= _amount;
+            money -= _amount;
             return true;
         }
         return false;
-    }
-
-    private bool EnoughPlace(int amount)
-    {
-        if(PeopleCount + amount > PeopleLimit)
-        {
-            return false;
-        }
-
-        return true;
     }
 }
