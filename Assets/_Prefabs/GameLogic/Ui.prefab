@@ -381,6 +381,12 @@ MonoBehaviour:
   m_RaycastLayerMask:
     serializedVersion: 2
     m_Bits: 23
+  m_StreetVariations:
+  - {fileID: 862668470812479259, guid: 1b96d0ff93bc5e143a0711141f2c9a68, type: 3}
+  - {fileID: -379380809125836377, guid: 8bfc96b73b57ce34bbd90d77b117de3b, type: 3}
+  - {fileID: -8816419176022192083, guid: 64a61aa831a1cff419072eb31be835ef, type: 3}
+  - {fileID: -5407911809751514266, guid: f3259a9db9bb07c46bfe1ebe982cc834, type: 3}
+  - {fileID: 2907552741309576775, guid: 1d6e3b51991c77d469ba412e0c78bdec, type: 3}
 --- !u!61 &142956613
 BoxCollider2D:
   m_ObjectHideFlags: 0
