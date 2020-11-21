@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
     float counter = 0;
     int smashcounter = 1;
 
-    private float smashMultiplier = 1;
-    private float hitMultiplier = 1;
+    public float smashMultiplier = 1;
+    public float hitMultiplier = 1;
 
     public int basepikeUpgrade = 1000;
     public int baseshovelUpgrade = 1000;
@@ -129,7 +129,6 @@ public class GameManager : MonoBehaviour
         {
             maxRockcounter += item.Value;
         }
-        Debug.Log(maxRockcounter);
     }
 
     private float SelectRandomStone()
@@ -140,12 +139,14 @@ public class GameManager : MonoBehaviour
             if (item.Value <= randomRock)
             {
                 UiManager.instance.smashableRock.GetComponent<SpawnValues>().SpawnStones(NameToIndex(item.Name));
+                SoundManager.instance.StoneDrop();
                 return item.Money;
             }
 
             if (randomRock <= rockValues[rockValues.Count-1].Value)
             {
                 UiManager.instance.smashableRock.GetComponent<SpawnValues>().SpawnStones(NameToIndex(item.Name));
+                SoundManager.instance.StoneDrop();
                 return rockValues[rockValues.Count - 1].Money;
             }
         }
@@ -154,7 +155,6 @@ public class GameManager : MonoBehaviour
 
     int NameToIndex(string _name)
     {
-        Debug.Log(_name);
         switch (_name)
         {
             case "bronze":
@@ -168,7 +168,6 @@ public class GameManager : MonoBehaviour
             case "diamond":
                 return 4;
         }
-
         return 0;
     }
 
@@ -198,11 +197,15 @@ public class GameManager : MonoBehaviour
                 try
                 {
                     UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[(int)rocklife - 1];
+                    UiManager.instance.smashableRock.GetComponent<SpawnValues>().amount++;
+                    SoundManager.instance.Rocksmash();
 
                 }
                 catch (Exception)
                 {
                     UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[UiManager.instance.rockState.Count-1];
+                    UiManager.instance.smashableRock.GetComponent<SpawnValues>().amount++;
+                    SoundManager.instance.Rocksmash();
                 }
             }
             else
@@ -211,11 +214,15 @@ public class GameManager : MonoBehaviour
                 try
                 {
                     UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[(int)rocklife - 1];
+                    UiManager.instance.smashableRock.GetComponent<SpawnValues>().amount++;
+                    SoundManager.instance.Rocksmash();
 
                 }
                 catch (Exception)
                 {
                     UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[UiManager.instance.rockState.Count - 1];
+                    UiManager.instance.smashableRock.GetComponent<SpawnValues>().amount++;
+                    SoundManager.instance.Rocksmash();
                 }
                 rockCounter++;
             }
@@ -234,11 +241,15 @@ public class GameManager : MonoBehaviour
                 try
                 {
                     UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[(int)rocklife - 1];
+                    UiManager.instance.smashableRock.GetComponent<SpawnValues>().amount++;
+                    SoundManager.instance.Rocksmash();
 
                 }
                 catch (Exception)
                 {
                     UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[UiManager.instance.rockState.Count - 1];
+                    UiManager.instance.smashableRock.GetComponent<SpawnValues>().amount++;
+                    SoundManager.instance.Rocksmash();
                 }
             }
             else
@@ -248,11 +259,15 @@ public class GameManager : MonoBehaviour
                 try
                 {
                     UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[(int)rocklife - 1];
+                    UiManager.instance.smashableRock.GetComponent<SpawnValues>().amount++;
+                    SoundManager.instance.Rocksmash();
 
                 }
                 catch (Exception)
                 {
                     UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[UiManager.instance.rockState.Count - 1];
+                    UiManager.instance.smashableRock.GetComponent<SpawnValues>().amount++;
+                    SoundManager.instance.Rocksmash();
                 }
             }  
         }
@@ -281,20 +296,32 @@ public class GameManager : MonoBehaviour
         {
             case "showel":
                 if (!Invoice(ShovelUpgrade) || ShovelUpgrade * baseshovelUpgrade > Math.Pow(baseshovelUpgrade, 4))
+                {
+                    SoundManager.instance.BuyFail();
                     break;
+                }
                 ShovelUpgrade *= baseshovelUpgrade;
+                SoundManager.instance.BuySuccess();
                 maxRockcounter -= randomDecrease;
                 break;
             case "pike":
-                if (!Invoice(PikeUpgrade) || PikeUpgrade*basepikeUpgrade > Math.Pow(basepikeUpgrade,4))
+                if (!Invoice(PikeUpgrade) || PikeUpgrade * basepikeUpgrade > Math.Pow(basepikeUpgrade, 4))
+                {
+                    SoundManager.instance.BuyFail();
                     break;
+                }
                 PikeUpgrade *= basepikeUpgrade;
+                SoundManager.instance.BuySuccess();
                 smashMultiplier += smashMultiplierAdd;
                 break;
             case "cart":
                 if (!Invoice(CartUpgrade) || CartUpgrade * basecartUpgrade > Math.Pow(basecartUpgrade, 4))
+                {
+                    SoundManager.instance.BuyFail();
                     break;
+                }
                 CartUpgrade *= basecartUpgrade;
+                SoundManager.instance.BuySuccess();
                 hitMultiplier += hitMultiplierAdd;
                 break;
         }

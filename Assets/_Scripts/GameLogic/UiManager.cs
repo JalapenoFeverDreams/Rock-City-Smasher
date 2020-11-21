@@ -120,6 +120,7 @@ public class UiManager : MonoBehaviour
 
     public void OpenShopWindow()
     {
+        SoundManager.instance.ButtonSound();
         shopWindowClicker.SetActive(!shopWindowClicker.activeSelf);
         details.SetActive(false);
         rocks.SetActive(!shopWindowClicker.activeSelf);
