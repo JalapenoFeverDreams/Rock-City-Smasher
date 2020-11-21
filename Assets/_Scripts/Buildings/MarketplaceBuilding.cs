@@ -7,10 +7,29 @@
     /// </summary>
     public class MarketplaceBuilding : BaseBuilding
     {
+        [SerializeField] private float m_TimeIntervalDecreaseFactorInPercent = 5f;
+        [SerializeField] private float m_ChancesOfRandomUpgradeInPercent = 2f;
+        
+        /// <summary>
+        /// Gets the Time Interval Decrease factor for the random upgrades.
+        /// </summary>
+        public float TimeIntervalDecreaseFactor
+        {
+            get => 1 - m_TimeIntervalDecreaseFactorInPercent / 100;
+        }
+
+        /// <summary>
+        /// Gets the Chance of getting a Random upgrade per time interval.
+        /// </summary>
+        public float ChancesOfRandomUpgrade
+        {
+            get => m_ChancesOfRandomUpgradeInPercent / 100;
+        }
+
         /// <inheritdoc/>
         protected override void UpgradeValues()
         {
-            Debug.Log("Marketplace built!");
+            BuildingManager.Instance.RandomUpgradesPossible = true;
         }
     }
 }
