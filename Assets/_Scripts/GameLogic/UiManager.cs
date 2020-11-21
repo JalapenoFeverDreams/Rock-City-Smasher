@@ -36,6 +36,7 @@ public class UiManager : MonoBehaviour
     public List<Sprite> rockState;
     [SerializeField]
     public Image smashableRock;
+    public GameObject rockSmashPlayground;
 
     [Header("Values")]
     [SerializeField] private Text m_PeopleCountToLimitText;
@@ -130,6 +131,7 @@ public class UiManager : MonoBehaviour
         rocks.SetActive(!townUI.activeSelf);
         shop.SetActive(!townUI.activeSelf);
         backToTown.SetActive(!townUI.activeSelf);
+        rockSmashPlayground.SetActive(!townUI.activeSelf);
     }
 
     public void setDetailsText(string _text)

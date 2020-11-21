@@ -139,13 +139,13 @@ public class GameManager : MonoBehaviour
         {
             if (item.Value <= randomRock)
             {
-                UiManager.instance.smashableRock.GetComponent<SpawnValues>().SpawnStones(NameToIndex(rockValues[rockValues.Count - 1].Name));
+                UiManager.instance.smashableRock.GetComponent<SpawnValues>().SpawnStones(NameToIndex(item.Name));
                 return item.Money;
             }
 
             if (randomRock <= rockValues[rockValues.Count-1].Value)
             {
-                UiManager.instance.smashableRock.GetComponent<SpawnValues>().SpawnStones(NameToIndex(rockValues[rockValues.Count - 1].Name));
+                UiManager.instance.smashableRock.GetComponent<SpawnValues>().SpawnStones(NameToIndex(item.Name));
                 return rockValues[rockValues.Count - 1].Money;
             }
         }
@@ -154,18 +154,19 @@ public class GameManager : MonoBehaviour
 
     int NameToIndex(string _name)
     {
+        Debug.Log(_name);
         switch (_name)
         {
             case "bronze":
-                return 4;
+                return 0;
             case "silver":
-                return 3;
+                return 1;
             case "gold":
                 return 2;
             case "platin":
-                return 1;
+                return 3;
             case "diamond":
-                return 0;
+                return 4;
         }
 
         return 0;
@@ -194,12 +195,28 @@ public class GameManager : MonoBehaviour
             if ((rocklife - (smashed * defaultRocklife)) > 0)
             {
                 rocklife -= (smashed*defaultRocklife);
-                UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[(int) rocklife-1];
+                try
+                {
+                    UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[(int)rocklife - 1];
+
+                }
+                catch (Exception)
+                {
+                    UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[UiManager.instance.rockState.Count-1];
+                }
             }
             else
             {
                 rocklife = defaultRocklife;
-                UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[(int)rocklife - 1];
+                try
+                {
+                    UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[(int)rocklife - 1];
+
+                }
+                catch (Exception)
+                {
+                    UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[UiManager.instance.rockState.Count - 1];
+                }
                 rockCounter++;
             }
         }
@@ -214,13 +231,29 @@ public class GameManager : MonoBehaviour
             if ((rocklife - (smashed * defaultRocklife)) > 0)
             {
                 rocklife -= (smashed * defaultRocklife);
-                UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[(int)rocklife - 1];
+                try
+                {
+                    UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[(int)rocklife - 1];
+
+                }
+                catch (Exception)
+                {
+                    UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[UiManager.instance.rockState.Count - 1];
+                }
             }
             else
             {
                 rockCounter++;
                 rocklife = defaultRocklife;
-                UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[(int)rocklife - 1];
+                try
+                {
+                    UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[(int)rocklife - 1];
+
+                }
+                catch (Exception)
+                {
+                    UiManager.instance.smashableRock.sprite = UiManager.instance.rockState[UiManager.instance.rockState.Count - 1];
+                }
             }  
         }
         RockValues(rockCounter);
@@ -239,7 +272,6 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < _amount; i++)
         {
             Money += SelectRandomStone() * multiplier;
-            
         }
     }
 
