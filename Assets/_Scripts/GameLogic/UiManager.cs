@@ -10,6 +10,9 @@ public class UiManager : MonoBehaviour
     [Header("Click-Shop Values")]
     public GameObject shopWindowClicker;
     public GameObject townUI;
+    public GameObject backToTown;
+    public GameObject rocks;
+    public GameObject shop;
     public Text pikeAmount;
     public Text showlAmount;
     public Text cartAmount;
@@ -65,5 +68,8 @@ public class UiManager : MonoBehaviour
     public void BackToTown()
     {
         townUI.SetActive(!townUI.activeSelf);
+        rocks.SetActive(!townUI.activeSelf);
+        shop.SetActive(!townUI.activeSelf);
+        backToTown.SetActive(!townUI.activeSelf);
     }
 }

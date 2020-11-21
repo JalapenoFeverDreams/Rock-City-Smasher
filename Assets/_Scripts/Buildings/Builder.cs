@@ -12,12 +12,15 @@
 
         public void GetBuilding(BaseBuilding building)
         {
-            if(m_CurrentBuilding)
+            if (GameManager.instance.BuyBuilding(building))
             {
-                Destroy(m_CurrentBuilding.gameObject);
-            }
+                if (m_CurrentBuilding)
+                {
+                    Destroy(m_CurrentBuilding.gameObject);
+                }
 
-            m_CurrentBuilding = Instantiate(building);
+                m_CurrentBuilding = Instantiate(building);
+            }
         }
 
         private void Update()
@@ -32,6 +35,7 @@
                 if(Input.GetKeyDown(KeyCode.Escape))
                 {
                     Destroy(m_CurrentBuilding.gameObject);
+                    GameManager.instance.Money += m_CurrentBuilding.Cost;
                     m_CurrentBuilding = null;
                     return;
                 }

@@ -216,19 +216,20 @@ public class GameManager : MonoBehaviour
     /// Buys the defined building.
     /// </summary>
     /// <param name="building"></param>
-    public void BuyBuilding(BaseBuilding building)
+    public bool BuyBuilding(BaseBuilding building)
     {
         if(!Invoice(building.Cost))
         {
-            return;
+            return false;
         }
+        return true;
     }
 
     private bool Invoice(float _amount)
     {
-        if(money >= _amount)
+        if(Money >= _amount)
         {
-            money -= _amount;
+            Money -= _amount;
             return true;
         }
         return false;
