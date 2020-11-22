@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         set 
         {
             m_PeopleCount = value;
-            UiManager.instance.PeopleCountToLimitText.text = $"{value} / {PeopleLimit} P";
+            UiManager.instance.PeopleCountToLimitText.text = $"{value} / {PeopleLimit}";
         } 
     }
 
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         set
         {
             m_PeopleLimit = value;
-            UiManager.instance.PeopleCountToLimitText.text = $"{PeopleCount} / {value} P ";
+            UiManager.instance.PeopleCountToLimitText.text = $"{PeopleCount} / {value}";
         }
     }
 
