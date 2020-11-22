@@ -26,6 +26,7 @@ public class CameraController : MonoBehaviour
     void Start()
     {
         multiplier = minMultiplier;
+        initCamPos();
     }
 
     // Update is called once per frame
@@ -59,6 +60,17 @@ public class CameraController : MonoBehaviour
             if((transform.position + transform.right * Time.deltaTime * movementSpeed * multiplier).y > 2 && (transform.position + transform.right * Time.deltaTime * movementSpeed * multiplier).y < 15)
             transform.position += transform.right * Time.deltaTime * movementSpeed * multiplier;
         }
+    }
+
+    void initCamPos()
+    {
+        camerX += Input.GetAxis("Mouse X") * Time.deltaTime * mouseSensitivity;
+        camerY -= Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSensitivity;
+
+        transform.eulerAngles = new Vector3(camerY, camerX, 0.0f);
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     void RotateCamera()
