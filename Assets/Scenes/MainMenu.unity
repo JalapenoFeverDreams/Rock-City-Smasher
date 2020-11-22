@@ -1087,6 +1087,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6560911262459956170, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
+      propertyPath: loadingPanel
+      value: 
+      objectReference: {fileID: 1750138232}
     - target: {fileID: 6933523119330045907, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -1725,6 +1729,11 @@ CanvasRenderer:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6560911262459956165, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
   m_PrefabInstance: {fileID: 547441701}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1750138232 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5027505430518847291, guid: 693674a56d07afb4ba00067da6b5d180, type: 3}
+  m_PrefabInstance: {fileID: 5027505430117621393}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1756837378
 PrefabInstance:

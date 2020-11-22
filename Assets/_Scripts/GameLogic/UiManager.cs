@@ -70,6 +70,7 @@ public class UiManager : MonoBehaviour
         shopWindowClicker.SetActive(false);
         try
         {
+            GameObject.Find("LoadingPanel").SetActive(false);
             loadingPanel.SetActive(false);
         }
         catch (System.Exception)
@@ -82,15 +83,7 @@ public class UiManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        try
-        {
-            initClickShopValues();
-        }
-        catch (System.Exception)
-        {
-            Debug.Log("Error: There is no GameManager, or you are not in a playable Scene");
-        }
-        
+
     }
 
     // Update is called once per frame
@@ -165,6 +158,7 @@ public class UiManager : MonoBehaviour
 
     public void StartGame()
     {
+        loadingPanel.SetActive(true);
         Destroy(this.gameObject);
         SceneManager.LoadScene("Buildings");
     }
