@@ -963,6 +963,10 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.13333334
       objectReference: {fileID: 0}
+    - target: {fileID: 482524903369736319, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: You will smash the stone 1 additional time, for each click.
+      objectReference: {fileID: 0}
     - target: {fileID: 721966002582479334, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 1.9
@@ -1042,6 +1046,11 @@ PrefabInstance:
     - target: {fileID: 4954747592674193079, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
       propertyPath: m_Color.b
       value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4960308079803462138, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Get a better pike. This will increase the damage, the stone obtains
+        for each click.
       objectReference: {fileID: 0}
     - target: {fileID: 6464665627481976504, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
       propertyPath: m_Color.a
@@ -1943,8 +1952,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a6713bb4512d345b06fee19dd6d488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: Builds a House each House will hit the rock for you (Stacks up with your
-    clicks).
+  text: Builds a house, each house will hit the rock for you whithin a given interval
+    (Stacks up with your clicks).
   frame: {fileID: 846799167}
   textFrame: {fileID: 183443735}
 --- !u!114 &1370504645
@@ -2115,7 +2124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a6713bb4512d345b06fee19dd6d488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: Build random biuldings for you automatically, these buildings are free.
+  text: Builds random biuldings for you automatically, these buildings are for free.
   frame: {fileID: 846799167}
   textFrame: {fileID: 183443735}
 --- !u!114 &1445687393
