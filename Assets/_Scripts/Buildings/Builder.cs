@@ -506,10 +506,7 @@
                && (rightNeighbour == null || rightNeighbour.Building == null || rightNeighbour.Building.BuildingType != BuildingType.Street)
                && leftNeighbour == tile)
             {
-                var street = Instantiate(m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("CrossingT")), neigbour.Building.transform.position, Quaternion.identity);
-                street.transform.eulerAngles = new Vector3(0, 180, 0);
-                Destroy(neigbour.Building.gameObject);
-                neigbour.Building = street;
+                ExecuteBuildingChange(neigbour, new Vector3(0, 180, 0), "CrossingT");
                 return;
             }
 
@@ -519,10 +516,7 @@
                && (leftNeighbour == null || leftNeighbour.Building == null || leftNeighbour.Building.BuildingType != BuildingType.Street)
                && rightNeighbour == tile)
             {
-                var street = Instantiate(m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("CrossingT")), neigbour.Building.transform.position, Quaternion.identity);
-                street.transform.eulerAngles = new Vector3(0, 0, 0);
-                Destroy(neigbour.Building.gameObject);
-                neigbour.Building = street;
+                ExecuteBuildingChange(neigbour, new Vector3(0, 0, 0), "CrossingT");
                 return;
             }
 
@@ -532,10 +526,7 @@
                && (bottomNeighbour == null || bottomNeighbour.Building == null || bottomNeighbour.Building.BuildingType != BuildingType.Street)
                && topNeighbour == tile)
             {
-                var street = Instantiate(m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("CrossingT")), neigbour.Building.transform.position, Quaternion.identity);
-                street.transform.eulerAngles = new Vector3(0, 270, 0);
-                Destroy(neigbour.Building.gameObject);
-                neigbour.Building = street;
+                ExecuteBuildingChange(neigbour, new Vector3(0, 270, 0), "CrossingT");
                 return;
             }
 
@@ -545,10 +536,7 @@
                && (topNeighbour == null || topNeighbour.Building == null || topNeighbour.Building.BuildingType != BuildingType.Street)
                && bottomNeighbour == tile)
             {
-                var street = Instantiate(m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("CrossingT")), neigbour.Building.transform.position, Quaternion.identity);
-                street.transform.eulerAngles = new Vector3(0, 90, 0);
-                Destroy(neigbour.Building.gameObject);
-                neigbour.Building = street;
+                ExecuteBuildingChange(neigbour, new Vector3(0, 90, 0), "CrossingT");
                 return;
             }
 
@@ -562,10 +550,7 @@
                && (topNeighbour == null || topNeighbour.Building == null || topNeighbour.Building.BuildingType != BuildingType.Street)
                && leftNeighbour == tile)
             {
-                var street = Instantiate(m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("CrossingT")), neigbour.Building.transform.position, Quaternion.identity);
-                street.transform.eulerAngles = new Vector3(0, 90, 0);
-                Destroy(neigbour.Building.gameObject);
-                neigbour.Building = street;
+                ExecuteBuildingChange(neigbour, new Vector3(0, 90, 0), "CrossingT");
                 return;
             }
 
@@ -575,10 +560,7 @@
                && (leftNeighbour == null || leftNeighbour.Building == null || leftNeighbour.Building.BuildingType != BuildingType.Street)
                && topNeighbour == tile)
             {
-                var street = Instantiate(m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("CrossingT")), neigbour.Building.transform.position, Quaternion.identity);
-                street.transform.eulerAngles = new Vector3(0, 0, 0);
-                Destroy(neigbour.Building.gameObject);
-                neigbour.Building = street;
+                ExecuteBuildingChange(neigbour, new Vector3(0, 0, 0), "CrossingT");
                 return;
             }
 
@@ -588,10 +570,7 @@
                && (rightNeighbour == null || rightNeighbour.Building == null || rightNeighbour.Building.BuildingType != BuildingType.Street)
                && topNeighbour == tile)
             {
-                var street = Instantiate(m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("CrossingT")), neigbour.Building.transform.position, Quaternion.identity);
-                street.transform.eulerAngles = new Vector3(0, 180, 0);
-                Destroy(neigbour.Building.gameObject);
-                neigbour.Building = street;
+                ExecuteBuildingChange(neigbour, new Vector3(0, 180, 0), "CrossingT");
                 return;
             }
 
@@ -601,10 +580,7 @@
                && (topNeighbour == null || topNeighbour.Building == null || topNeighbour.Building.BuildingType != BuildingType.Street)
                && rightNeighbour == tile)
             {
-                var street = Instantiate(m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("CrossingT")), neigbour.Building.transform.position, Quaternion.identity);
-                street.transform.eulerAngles = new Vector3(0, 90, 0);
-                Destroy(neigbour.Building.gameObject);
-                neigbour.Building = street;
+                ExecuteBuildingChange(neigbour, new Vector3(0, 90, 0), "CrossingT");
                 return;
             }
 
@@ -614,10 +590,7 @@
                && (rightNeighbour == null || rightNeighbour.Building == null || rightNeighbour.Building.BuildingType != BuildingType.Street)
                && topNeighbour == tile)
             {
-                var street = Instantiate(m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("CrossingT")), neigbour.Building.transform.position, Quaternion.identity);
-                street.transform.eulerAngles = new Vector3(0, 180, 0);
-                Destroy(neigbour.Building.gameObject);
-                neigbour.Building = street;
+                ExecuteBuildingChange(neigbour, new Vector3(0, 180, 0), "CrossingT");
                 return;
             }
 
@@ -627,10 +600,7 @@
                && (bottomNeighbour == null || bottomNeighbour.Building == null || bottomNeighbour.Building.BuildingType != BuildingType.Street)
                && leftNeighbour == tile)
             {
-                var street = Instantiate(m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("CrossingT")), neigbour.Building.transform.position, Quaternion.identity);
-                street.transform.eulerAngles = new Vector3(0, 270, 0);
-                Destroy(neigbour.Building.gameObject);
-                neigbour.Building = street;
+                ExecuteBuildingChange(neigbour, new Vector3(0, 270, 0), "CrossingT");
                 return;
             }
 
@@ -640,10 +610,7 @@
                && (leftNeighbour == null || leftNeighbour.Building == null || leftNeighbour.Building.BuildingType != BuildingType.Street)
                && bottomNeighbour == tile)
             {
-                var street = Instantiate(m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("CrossingT")), neigbour.Building.transform.position, Quaternion.identity);
-                street.transform.eulerAngles = new Vector3(0, 0, 0);
-                Destroy(neigbour.Building.gameObject);
-                neigbour.Building = street;
+                ExecuteBuildingChange(neigbour, new Vector3(0, 0, 0), "CrossingT");
                 return;
             }
 
@@ -653,10 +620,7 @@
                && (bottomNeighbour == null || bottomNeighbour.Building == null || bottomNeighbour.Building.BuildingType != BuildingType.Street)
                && rightNeighbour == tile)
             {
-                var street = Instantiate(m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("CrossingT")), neigbour.Building.transform.position, Quaternion.identity);
-                street.transform.eulerAngles = new Vector3(0, 270, 0);
-                Destroy(neigbour.Building.gameObject);
-                neigbour.Building = street;
+                ExecuteBuildingChange(neigbour, new Vector3(0, 270, 0), "CrossingT");
                 return;
             }
 
@@ -666,10 +630,7 @@
                && (rightNeighbour == null || rightNeighbour.Building == null || rightNeighbour.Building.BuildingType != BuildingType.Street)
                && bottomNeighbour == tile)
             {
-                var street = Instantiate(m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("CrossingT")), neigbour.Building.transform.position, Quaternion.identity);
-                street.transform.eulerAngles = new Vector3(0, 180, 0);
-                Destroy(neigbour.Building.gameObject);
-                neigbour.Building = street;
+                ExecuteBuildingChange(neigbour, new Vector3(0, 180, 0), "CrossingT");
                 return;
             }
 
@@ -683,9 +644,7 @@
                && topNeighbour != null && topNeighbour.Building != null && topNeighbour.Building.BuildingType == BuildingType.Street
                && leftNeighbour == tile)
             {
-                var street = Instantiate(m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("CrossingNormal")), neigbour.Building.transform.position, Quaternion.identity);
-                Destroy(neigbour.Building.gameObject);
-                neigbour.Building = street;
+                ExecuteBuildingChange(neigbour, new Vector3(0, 0, 0), "CrossingNormal");
                 return;
             }
 
@@ -695,9 +654,7 @@
                && leftNeighbour != null && leftNeighbour.Building != null && leftNeighbour.Building.BuildingType == BuildingType.Street
                && topNeighbour == tile)
             {
-                var street = Instantiate(m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("CrossingNormal")), neigbour.Building.transform.position, Quaternion.identity);
-                Destroy(neigbour.Building.gameObject);
-                neigbour.Building = street;
+                ExecuteBuildingChange(neigbour, new Vector3(0, 0, 0), "CrossingNormal");
                 return;
             }
 
@@ -707,9 +664,7 @@
                && topNeighbour != null && topNeighbour.Building != null && topNeighbour.Building.BuildingType == BuildingType.Street
                && rightNeighbour == tile)
             {
-                var street = Instantiate(m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("CrossingNormal")), neigbour.Building.transform.position, Quaternion.identity);
-                Destroy(neigbour.Building.gameObject);
-                neigbour.Building = street;
+                ExecuteBuildingChange(neigbour, new Vector3(0, 0, 0), "CrossingNormal");
                 return;
             }
 
@@ -719,9 +674,7 @@
                && topNeighbour != null && topNeighbour.Building != null && topNeighbour.Building.BuildingType == BuildingType.Street
                && bottomNeighbour == tile)
             {
-                var street = Instantiate(m_StreetVariations.FirstOrDefault(x => x.name.EndsWith("CrossingNormal")), neigbour.Building.transform.position, Quaternion.identity);
-                Destroy(neigbour.Building.gameObject);
-                neigbour.Building = street;
+                ExecuteBuildingChange(neigbour, new Vector3(0, 0, 0), "CrossingNormal");
                 return;
             }
 
