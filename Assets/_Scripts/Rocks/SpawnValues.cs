@@ -27,7 +27,7 @@ public class SpawnValues : MonoBehaviour
         if (amount > 0)
         {
             amount -= Time.deltaTime * 5;
-            transform.position = new Vector3(startingPos.x + Mathf.Sin((Time.time * speed) * amount)*amount, startingPos.y + (Mathf.Sin((Time.time * speed) * amount)), 0);
+            transform.position = new Vector3(startingPos.x + Mathf.Sin((Time.time * speed) * amount)*amount/20, startingPos.y + (Mathf.Sin((Time.time * speed) * amount))/20, 0);
         }
     }
 
