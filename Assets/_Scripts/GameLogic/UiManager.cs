@@ -45,6 +45,9 @@ public class UiManager : MonoBehaviour
     [Header("LoadingPanel")]
     public GameObject loadingPanel;
 
+    [Header("Controls")]
+    public GameObject controls;
+
     /// <summary>
     /// Gets or sets the People count to limit text object.
     /// </summary>
@@ -144,6 +147,7 @@ public class UiManager : MonoBehaviour
         SoundManager.instance.ButtonSound();
         shopWindowClicker.SetActive(false);
         townUI.SetActive(!townUI.activeSelf);
+        controls.SetActive(townUI.activeSelf);
         rocks.SetActive(!townUI.activeSelf);
         shop.SetActive(!townUI.activeSelf);
         backToTown.SetActive(!townUI.activeSelf);
