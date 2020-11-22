@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InitialCost: 2
-  m_CostIncreaseFactor: 0
+  m_CostIncreaseFactor: 5
   m_BuildingType: 5
 --- !u!1001 &7298369107406395415
 PrefabInstance:

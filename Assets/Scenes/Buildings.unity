@@ -134,6 +134,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 393022279, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
+      propertyPath: m_Text
+      value: Street (2 $)
+      objectReference: {fileID: 0}
+    - target: {fileID: 899938238, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
+      propertyPath: m_Text
+      value: Entertainment (500 $)
+      objectReference: {fileID: 0}
+    - target: {fileID: 981056236, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
+      propertyPath: m_Text
+      value: Farm (150 $) - (5 P)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238520984, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
+      propertyPath: m_Text
+      value: House (50 $)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1267681762, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
+      propertyPath: m_Text
+      value: Marketplace (500 $)
+      objectReference: {fileID: 0}
     - target: {fileID: 1432274304, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
       propertyPath: m_Enabled
       value: 1

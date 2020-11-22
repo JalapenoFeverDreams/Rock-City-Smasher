@@ -100,7 +100,7 @@ public class UiManager : MonoBehaviour
                 entertainmentCost.text = $"Entertainment ({cost} $)";
                 break;
             case BuildingType.Marketplace:
-                marketplaceCost.text = $"Marketplace ({cost }$)";
+                marketplaceCost.text = $"Marketplace ({cost} $)";
                 break;
             case BuildingType.Street:
                 streetCost.text = $"Street ({cost} $)";
