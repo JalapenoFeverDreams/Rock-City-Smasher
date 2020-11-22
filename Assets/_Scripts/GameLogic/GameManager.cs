@@ -36,9 +36,9 @@ public class GameManager : MonoBehaviour
     public float smashMultiplier = 1;
     public float hitMultiplier = 1;
 
-    public int basepikeUpgrade = 1000;
-    public int baseshovelUpgrade = 1000;
-    public int basecartUpgrade = 1000;
+    public int basepikeUpgrade;
+    public int baseshovelUpgrade;
+    public int basecartUpgrade;
 
     private int pikeUpgrade = 1000;
     private int shovelUpgrade = 1000;
@@ -75,17 +75,41 @@ public class GameManager : MonoBehaviour
 
     public int PikeUpgrade { get => pikeUpgrade; set {
             pikeUpgrade = value;
-            UiManager.instance.pikeAmount.text = pikeUpgrade + " $";
+            if (PikeUpgrade * basepikeUpgrade <= Math.Pow(basepikeUpgrade, 4) && PikeUpgrade * basepikeUpgrade > 0)
+            {
+                UiManager.instance.pikeAmount.text = pikeUpgrade + " $";
+            }
+            else
+            {
+                UiManager.instance.pikeAmount.text = "Sold out! " + " $";
+            }
+            
         } 
     }
     public int ShovelUpgrade { get => shovelUpgrade; set {
             shovelUpgrade = value;
-            UiManager.instance.showlAmount.text = shovelUpgrade + " $";
+            if (ShovelUpgrade * baseshovelUpgrade <= Math.Pow(baseshovelUpgrade, 4) && ShovelUpgrade * baseshovelUpgrade > 0)
+            {
+                UiManager.instance.showlAmount.text = shovelUpgrade + " $";
+            }
+            else
+            {
+                UiManager.instance.showlAmount.text = "Sold out! " + " $";
+            }
         } 
     }
     public int CartUpgrade { get => cartUpgrade; set {
             cartUpgrade = value;
-            UiManager.instance.cartAmount.text = cartUpgrade + " $";
+            Debug.Log(cartUpgrade * basecartUpgrade + " " + Math.Pow(basecartUpgrade, 4));
+            if (cartUpgrade * basecartUpgrade <= Math.Pow(basecartUpgrade, 4) && cartUpgrade * basecartUpgrade > 0)
+            {
+                UiManager.instance.cartAmount.text = cartUpgrade + " $";
+            }
+            else
+            {
+                UiManager.instance.cartAmount.text = "Sold out! " + " $";
+            }
+            
         }
     }
 

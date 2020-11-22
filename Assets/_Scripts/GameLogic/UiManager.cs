@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using Scripts.Buildings;
 
 public class UiManager : MonoBehaviour
@@ -41,6 +42,9 @@ public class UiManager : MonoBehaviour
     [Header("Values")]
     [SerializeField] private Text m_PeopleCountToLimitText;
 
+    [Header("LoadingPanel")]
+    public GameObject loadingPanel;
+
     /// <summary>
     /// Gets or sets the People count to limit text object.
     /// </summary>
@@ -64,12 +68,22 @@ public class UiManager : MonoBehaviour
         }
         details.SetActive(false);
         shopWindowClicker.SetActive(false);
+        try
+        {
+            GameObject.Find("LoadingPanel").SetActive(false);
+            loadingPanel.SetActive(false);
+        }
+        catch (System.Exception)
+        {
+
+        }
+        
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        initClickShopValues();
+
     }
 
     // Update is called once per frame
@@ -140,5 +154,33 @@ public class UiManager : MonoBehaviour
     {
         details.SetActive(true);
         detailsDescr.text = _text;
+    }
+
+    public void StartGame()
+    {
+        loadingPanel.SetActive(true);
+        Destroy(this.gameObject);
+        SceneManager.LoadScene("Buildings");
+    }
+
+    public void BackToMain()
+    {
+        loadingPanel.SetActive(true);
+        SceneManager.LoadScene("MainMenu");
+        try
+        {
+            Destroy(GameManager.instance.gameObject);
+            Destroy(UiManager.instance.gameObject);
+        }
+        catch (System.Exception)
+        {
+
+        }
+
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
