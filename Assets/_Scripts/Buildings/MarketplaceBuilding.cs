@@ -8,7 +8,7 @@
     public class MarketplaceBuilding : BaseBuilding
     {
         [SerializeField] private float m_TimeIntervalDecreaseFactorInPercent = 5f;
-        [SerializeField] private float m_ChancesOfRandomUpgradeInPercent = 2f;
+        [SerializeField] private float m_ChancesOfRandomUpgradeInPercent = 10f;
         
         /// <summary>
         /// Gets the Time Interval Decrease factor for the random upgrades.
@@ -21,10 +21,7 @@
         /// <summary>
         /// Gets the Chance of getting a Random upgrade per time interval.
         /// </summary>
-        public float ChancesOfRandomUpgrade
-        {
-            get => m_ChancesOfRandomUpgradeInPercent / 100;
-        }
+        public float ChancesOfRandomUpgrade => m_ChancesOfRandomUpgradeInPercent;
 
         /// <inheritdoc/>
         protected override void UpgradeValues()

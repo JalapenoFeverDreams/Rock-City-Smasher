@@ -48,8 +48,9 @@
 
         public void PlaceBuilding()
         {
-            UpgradeValues();
             BuildingManager.Instance.Buildings.Add(this);
+
+            UpgradeValues();
         }
     }
 }

@@ -18,6 +18,16 @@
         /// </summary>
         public Tile[,] Tiles { get; private set; }
 
+        /// <summary>
+        /// Gets the Size in X-Dimension.
+        /// </summary>
+        public int SizeX => m_SizeX;
+
+        /// <summary>
+        /// Gets the Size in Z-Dimension.
+        /// </summary>
+        public int SizeZ => m_SizeZ;
+
         private void Awake()
         {
             GenerateFloor();

@@ -34,7 +34,7 @@
         {
             GameManager.instance.PeopleLimit += 5;
 
-            StartCoroutine(StartAutomaticClicks());
+            this.StartCoroutine(StartAutomaticClicks());
         }
 
         private IEnumerator StartAutomaticClicks()

@@ -44,6 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f232a8890d2344087d9525d54c02c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_BuildPrefabs:
+  - {fileID: 97647255733959733, guid: dd9c4934a553352438554deaa9119018, type: 3}
+  - {fileID: 97647255733959733, guid: dd9c4934a553352438554deaa9119018, type: 3}
+  - {fileID: 97647255733959733, guid: dd9c4934a553352438554deaa9119018, type: 3}
+  - {fileID: 97647255733959733, guid: dd9c4934a553352438554deaa9119018, type: 3}
+  - {fileID: 97647255733959733, guid: dd9c4934a553352438554deaa9119018, type: 3}
+  - {fileID: 882511570469065168, guid: b6592e0df7626174786d240e3bd719f5, type: 3}
+  - {fileID: 882511570469065168, guid: b6592e0df7626174786d240e3bd719f5, type: 3}
+  - {fileID: 2104229396758790375, guid: 19d6ebf15044c344da9caab80a4db746, type: 3}
+  - {fileID: 2104229396758790375, guid: 19d6ebf15044c344da9caab80a4db746, type: 3}
+  - {fileID: -1914116657421799581, guid: dfec60e6a66fb35498552db31d1d91c1, type: 3}
 --- !u!114 &2088077067
 MonoBehaviour:
   m_ObjectHideFlags: 0
