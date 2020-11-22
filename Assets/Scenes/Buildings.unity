@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1418272069}
-  m_IndirectSpecularColor: {r: 0.99999946, g: 0.99999946, b: 0.99999946, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -394,6 +394,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 39.160057
       objectReference: {fileID: 0}
+    - target: {fileID: 172215140, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: -8468672275783209942, guid: cd41d1b180351c24f97371c4262e7efb, type: 3}
     - target: {fileID: 245382939, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 3.9
@@ -594,6 +598,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 39.160057
       objectReference: {fileID: 0}
+    - target: {fileID: 1208570874, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 6013237146557956373, guid: f446713917a12b240ae379419453b1d0, type: 3}
     - target: {fileID: 1238520983, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2
@@ -690,6 +698,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 39.160057
       objectReference: {fileID: 0}
+    - target: {fileID: 1449018317, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 3230182921248572475, guid: bb5bb2a6c238c774db93e200a0ce2f0a, type: 3}
     - target: {fileID: 721966002582479334, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 1.9
@@ -1417,15 +1429,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 526491880183005640, guid: 6575307d93ee5204a977d1d18cb23f38, type: 3}
       propertyPath: basepikeUpgrade
-      value: 80
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 526491880183005640, guid: 6575307d93ee5204a977d1d18cb23f38, type: 3}
       propertyPath: baseshovelUpgrade
-      value: 60
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 526491880183005640, guid: 6575307d93ee5204a977d1d18cb23f38, type: 3}
       propertyPath: basecartUpgrade
-      value: 80
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 526491880183005641, guid: 6575307d93ee5204a977d1d18cb23f38, type: 3}
       propertyPath: m_Name
