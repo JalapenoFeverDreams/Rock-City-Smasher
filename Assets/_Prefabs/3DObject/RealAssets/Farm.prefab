@@ -55,7 +55,7 @@ MonoBehaviour:
   m_InitialCost: 150
   m_CostIncreaseFactor: 20
   m_BuildingType: 3
-  m_PeopleCountIncrease: 5
+  m_PeopleCountIncrease: 15
   m_MaterialMultiplyFactorAsPercent: 2
 --- !u!1001 &2048855701483420007
 PrefabInstance:

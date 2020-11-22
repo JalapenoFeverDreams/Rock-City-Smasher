@@ -110,7 +110,7 @@ public class UiManager : MonoBehaviour
                 houseCost.text = $"House ({cost} $)";
                 break;
             case BuildingType.Farm:
-                farmCost.text = $"Farm ({cost} $) - (5 P)";
+                farmCost.text = $"Farm ({cost} $) - (15 P)";
                 break;
             case BuildingType.Entertainment:
                 entertainmentCost.text = $"Entertainment ({cost} $)";
