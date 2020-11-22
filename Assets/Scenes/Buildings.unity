@@ -514,6 +514,26 @@ PrefabInstance:
       propertyPath: basecartUpgrade
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 526491880183005640, guid: 6575307d93ee5204a977d1d18cb23f38, type: 3}
+      propertyPath: m_Street
+      value: 
+      objectReference: {fileID: 862668470812479259, guid: 1b96d0ff93bc5e143a0711141f2c9a68, type: 3}
+    - target: {fileID: 526491880183005640, guid: 6575307d93ee5204a977d1d18cb23f38, type: 3}
+      propertyPath: m_Entertainment
+      value: 
+      objectReference: {fileID: 2104229396758790375, guid: 19d6ebf15044c344da9caab80a4db746, type: 3}
+    - target: {fileID: 526491880183005640, guid: 6575307d93ee5204a977d1d18cb23f38, type: 3}
+      propertyPath: m_Farm
+      value: 
+      objectReference: {fileID: 6013237146557956373, guid: f446713917a12b240ae379419453b1d0, type: 3}
+    - target: {fileID: 526491880183005640, guid: 6575307d93ee5204a977d1d18cb23f38, type: 3}
+      propertyPath: m_House
+      value: 
+      objectReference: {fileID: 3230182921248572475, guid: bb5bb2a6c238c774db93e200a0ce2f0a, type: 3}
+    - target: {fileID: 526491880183005640, guid: 6575307d93ee5204a977d1d18cb23f38, type: 3}
+      propertyPath: m_Marketplace
+      value: 
+      objectReference: {fileID: -8468672275783209942, guid: cd41d1b180351c24f97371c4262e7efb, type: 3}
     - target: {fileID: 526491880183005641, guid: 6575307d93ee5204a977d1d18cb23f38, type: 3}
       propertyPath: m_Name
       value: GameManager
