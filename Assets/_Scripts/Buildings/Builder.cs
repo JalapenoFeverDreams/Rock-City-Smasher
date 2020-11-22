@@ -46,6 +46,15 @@
                     return;
                 }
 
+                if(Input.mouseScrollDelta.y > 0)
+                {
+                    m_CurrentBuilding.transform.eulerAngles += new Vector3(0, 90, 0);
+                }
+                else if(Input.mouseScrollDelta.y < 0)
+                {
+                    m_CurrentBuilding.transform.eulerAngles -= new Vector3(0, 90, 0);
+                }
+
                 if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out var hit, Mathf.Infinity, m_RaycastLayerMask))
                 {
                     var tile = hit.transform.GetComponent<Tile>();
