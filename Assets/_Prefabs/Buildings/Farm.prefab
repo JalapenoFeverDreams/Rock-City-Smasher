@@ -62,7 +62,7 @@ MonoBehaviour:
   m_CostIncreaseFactor: 12.5
   m_BuildingType: 3
   m_PeopleCountIncrease: 5
-  m_MaterialMultiplyFactorAsPercent: 2
+  m_MaterialMultiplyFactorAsPercent: 100
 --- !u!1001 &1774519817798379846
 PrefabInstance:
   m_ObjectHideFlags: 0

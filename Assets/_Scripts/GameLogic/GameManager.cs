@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public float hitMultiplierAdd = 1;
     public int randomDecrease = 7;
 
-    private float money = 1000000;
+    private float money = 0;
     private int m_PeopleCount = 0;
     private int m_PeopleLimit = 0;
 
@@ -43,6 +43,13 @@ public class GameManager : MonoBehaviour
     private int pikeUpgrade = 1000;
     private int shovelUpgrade = 1000;
     private int cartUpgrade = 1000;
+
+    [Header("Building Prefabs")]
+    [SerializeField] private BaseBuilding m_House;
+    [SerializeField] private BaseBuilding m_Farm;
+    [SerializeField] private BaseBuilding m_Entertainment;
+    [SerializeField] private BaseBuilding m_Street;
+    [SerializeField] private BaseBuilding m_Marketplace;
 
     public float Money { get => money; set {
             money = value;
@@ -69,7 +76,7 @@ public class GameManager : MonoBehaviour
         set
         {
             m_PeopleLimit = value;
-            UiManager.instance.PeopleCountToLimitText.text = $"{PeopleCount} / {value} P ";
+            UiManager.instance.PeopleCountToLimitText.text = $"{PeopleCount} / {value} P";
         }
     }
 
@@ -203,6 +210,12 @@ public class GameManager : MonoBehaviour
         PikeUpgrade = basepikeUpgrade;
         ShovelUpgrade = baseshovelUpgrade;
         CartUpgrade = basepikeUpgrade;
+
+        UiManager.instance.SetBuildingCost(m_House);
+        UiManager.instance.SetBuildingCost(m_Farm);
+        UiManager.instance.SetBuildingCost(m_Entertainment);
+        UiManager.instance.SetBuildingCost(m_Street);
+        UiManager.instance.SetBuildingCost(m_Marketplace);
     }
 
     /// <summary>
@@ -362,7 +375,7 @@ public class GameManager : MonoBehaviour
             return false;
         }
 
-        if (!Invoice(building.Cost))
+        if (Money < building.Cost)
         {
             return false;
         }

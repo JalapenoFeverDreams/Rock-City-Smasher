@@ -18,12 +18,21 @@
         /// <summary>
         /// Gets the material multiply factor.
         /// </summary>
-        public int MaterialMultiplyFactor => 1 - m_MaterialMultiplyFactorAsPercent / 100;
+        public int MaterialMultiplyFactor => m_MaterialMultiplyFactorAsPercent / 100 + 1;
 
         /// <inheritdoc/>
         protected override void UpgradeValues()
         {
             GameManager.instance.PeopleCount += PeopleCountIncrease;
+        }
+
+        /// <inheritdoc>/>
+        protected override void DowngradeValues()
+        {
+            if(GameManager.instance.PeopleCount >= PeopleCountIncrease)
+            {
+                GameManager.instance.PeopleCount -= PeopleCountIncrease;
+            }
         }
     }
 }

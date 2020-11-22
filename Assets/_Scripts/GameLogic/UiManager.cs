@@ -86,7 +86,6 @@ public class UiManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -117,7 +116,7 @@ public class UiManager : MonoBehaviour
                 entertainmentCost.text = $"Entertainment ({cost} $)";
                 break;
             case BuildingType.Marketplace:
-                marketplaceCost.text = $"Marketplace ({cost }$)";
+                marketplaceCost.text = $"Marketplace ({cost} $)";
                 break;
             case BuildingType.Street:
                 streetCost.text = $"Street ({cost} $)";

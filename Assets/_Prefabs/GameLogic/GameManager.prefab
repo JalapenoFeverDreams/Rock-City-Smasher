@@ -45,4 +45,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defaultRocklife: 5
   defaultRandomMin: 0
-  defaultTickRate: 0
+  smashMultiplierAdd: 2
+  hitMultiplierAdd: 1
+  randomDecrease: 7
+  smashMultiplier: 1
+  hitMultiplier: 1
+  basepikeUpgrade: 150
+  baseshovelUpgrade: 80
+  basecartUpgrade: 120
+  m_House: {fileID: 3230182921248572475, guid: bb5bb2a6c238c774db93e200a0ce2f0a, type: 3}
+  m_Farm: {fileID: 6013237146557956373, guid: f446713917a12b240ae379419453b1d0, type: 3}
+  m_Entertainment: {fileID: 2104229396758790375, guid: 19d6ebf15044c344da9caab80a4db746, type: 3}
+  m_Street: {fileID: 862668470812479259, guid: 1b96d0ff93bc5e143a0711141f2c9a68, type: 3}
+  m_Marketplace: {fileID: -8468672275783209942, guid: cd41d1b180351c24f97371c4262e7efb, type: 3}

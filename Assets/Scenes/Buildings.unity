@@ -1876,18 +1876,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 526491880183005640, guid: 6575307d93ee5204a977d1d18cb23f38, type: 3}
-      propertyPath: basepikeUpgrade
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 526491880183005640, guid: 6575307d93ee5204a977d1d18cb23f38, type: 3}
-      propertyPath: baseshovelUpgrade
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 526491880183005640, guid: 6575307d93ee5204a977d1d18cb23f38, type: 3}
-      propertyPath: basecartUpgrade
-      value: 80
-      objectReference: {fileID: 0}
     - target: {fileID: 526491880183005641, guid: 6575307d93ee5204a977d1d18cb23f38, type: 3}
       propertyPath: m_Name
       value: GameManager

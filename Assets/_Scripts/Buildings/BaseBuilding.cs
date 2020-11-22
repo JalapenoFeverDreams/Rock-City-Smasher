@@ -27,12 +27,12 @@
         /// <summary>
         /// Gets the Cost Increase Factor of the building.
         /// </summary>
-        public float CostIncreaseFactor => m_CostIncreaseFactor;
+        public float CostIncreaseFactor => m_CostIncreaseFactor / 100 + 1;
         
         /// <summary>
         /// Gets the Building Cost.
         /// </summary>
-        public int Cost => (int)(InitialCost * Mathf.Pow(m_CostIncreaseFactor, BuildingManager.Instance.Buildings.Count(x => x.BuildingType == BuildingType)));
+        public int Cost => (int)(InitialCost * Mathf.Pow(CostIncreaseFactor, BuildingManager.Instance.Buildings.Count(x => x.BuildingType == BuildingType)));
 
         /// <summary>
         /// Gets the type of the building.
@@ -46,10 +46,29 @@
         /// </summary>
         protected virtual void UpgradeValues() { }
 
+        /// <summary>
+        /// This method downgrades the player values.
+        /// </summary>
+        protected virtual void DowngradeValues() { }
+
+        /// <summary>
+        /// Places a building.
+        /// </summary>
         public void PlaceBuilding()
         {
-            UpgradeValues();
             BuildingManager.Instance.Buildings.Add(this);
+
+            UpgradeValues();
+        }
+
+        /// <summary>
+        /// Picks up a building.
+        /// </summary>
+        public void PickupBuilding()
+        {
+            BuildingManager.Instance.Buildings.Remove(this);
+
+            DowngradeValues();
         }
     }
 }
