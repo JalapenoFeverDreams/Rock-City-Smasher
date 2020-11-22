@@ -19,7 +19,7 @@ public class DestroyMe : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= deadTimer)
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }

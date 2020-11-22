@@ -34,7 +34,10 @@ public class SpawnValues : MonoBehaviour
 
     public void SpawnStones(int _value)
     {
-        var tmp = Instantiate(stoneValues[_value], this.transform.position, Quaternion.Euler(0, 0, Random.Range(1, 360)), this.transform.parent.transform);
-        tmp.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-90,90), 90)*5, ForceMode2D.Impulse);
+        if (UiManager.instance.rockSmashPlayground.activeSelf)
+        {
+            var tmp = Instantiate(stoneValues[_value], this.transform.position, Quaternion.Euler(0, 0, Random.Range(1, 360)), this.transform.parent.transform);
+            tmp.GetComponent<Rigidbody2D>().AddForce(new Vector2(Random.Range(-90, 90), 90) * 5, ForceMode2D.Impulse);
+        }
     }
 }
