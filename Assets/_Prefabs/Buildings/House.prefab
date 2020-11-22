@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InitialCost: 50
-  m_CostIncreaseFactor: 12.5
+  m_CostIncreaseFactor: 5
   m_BuildingType: 1
   m_WaitTimerForClicks: 5
   m_PeopleLimitIncrease: 5
