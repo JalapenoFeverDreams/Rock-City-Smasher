@@ -163,6 +163,7 @@ public class UiManager : MonoBehaviour
 
     public void StartGame()
     {
+        SoundManager.instance.BuySuccess();
         loadingPanel.SetActive(true);
         Destroy(this.gameObject);
         SceneManager.LoadScene("Buildings");
