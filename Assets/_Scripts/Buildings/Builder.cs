@@ -18,14 +18,21 @@
         public void GetBuilding(BaseBuilding building)
         {
             GameManager.instance.SetBuildingCost(building);
-            if (GameManager.instance.BuyBuilding(building))
+            if (GameManager.instance.BuyBuilding(building) && m_CurrentBuilding == null)
             {
+                SoundManager.instance.BuySuccess();
+                GameManager.instance.Money -= building.Cost;
                 if (m_CurrentBuilding)
                 {
                     Destroy(m_CurrentBuilding.gameObject);
                 }
 
                 m_CurrentBuilding = Instantiate(building);
+            }
+            else
+            {
+                
+                SoundManager.instance.BuyFail();
             }
         }
 

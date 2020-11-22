@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public float hitMultiplierAdd = 1;
     public int randomDecrease = 7;
 
-    private float money = 10000;
+    private float money = 0;
     private int m_PeopleCount = 0;
     private int m_PeopleLimit = 0;
 
@@ -375,7 +375,7 @@ public class GameManager : MonoBehaviour
             return false;
         }
 
-        if (!Invoice(building.Cost))
+        if (Money < building.Cost)
         {
             return false;
         }
