@@ -1325,8 +1325,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a6713bb4512d345b06fee19dd6d488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: This a sometic item, it will make your city prettier (Time was missing! :)
-    ).
+  text: This is a cosmetic item, it will make your city prettier (Time was missing!
+    :) ).
   frame: {fileID: 846799167}
   textFrame: {fileID: 183443735}
 --- !u!114 &693131171
