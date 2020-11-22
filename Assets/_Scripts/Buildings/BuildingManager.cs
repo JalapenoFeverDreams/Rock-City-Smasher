@@ -1,7 +1,8 @@
 ﻿namespace Scripts.Buildings
 {
     using System.Collections.Generic;
-    
+    using System.Collections;
+
     using UnityEngine;
     
     /// <summary>
@@ -12,6 +13,8 @@
     {
         private FloorGenerator m_FloorGenerator;
         private static BuildingManager m_Instance;
+        private Coroutine m_RandomUpgradeRoutine;
+        private bool m_RandomUpgradesPossible;
 
         /// <summary>
         /// Gets or private sets the Instance of the <see cref="BuildingManager"/> singleton.
@@ -44,11 +47,40 @@
         /// <summary>
         /// Gets or sets a value indicating if Random Upgrades are possible.
         /// </summary>
-        public bool RandomUpgradesPossible { get; set; }
+        public bool RandomUpgradesPossible 
+        { 
+            get => m_RandomUpgradesPossible; 
+            set
+            {
+                m_RandomUpgradesPossible = value;
+                if(value)
+                {
+                    if(m_RandomUpgradeRoutine == null)
+                    {
+                        m_RandomUpgradeRoutine = StartCoroutine(StartRandomUpgradeInterval());
+                    }
+                }
+                else
+                {
+                    if(m_RandomUpgradeRoutine != null)
+                    {
+                        StopCoroutine(m_RandomUpgradeRoutine);
+                    }                
+                }
+            } 
+        }
 
         private void Awake()
         {
             m_FloorGenerator = GetComponent<FloorGenerator>();
+        }
+
+        private IEnumerator StartRandomUpgradeInterval()
+        {
+            while(true)
+            {
+
+            }
         }
     }
 }

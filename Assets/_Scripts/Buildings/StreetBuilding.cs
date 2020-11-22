@@ -7,10 +7,5 @@
     /// </summary>
     public class StreetBuilding : BaseBuilding
     {
-        /// <inheritdoc/>
-        protected override void UpgradeValues()
-        {
-            Debug.Log("Street built.");
-        }
     }
 }

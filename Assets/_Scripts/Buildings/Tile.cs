@@ -39,6 +39,17 @@
             { "top", null },
             { "bottom", null },
         };
+
+        /// <summary>
+        /// Changes the building on the Tile.
+        /// </summary>
+        /// <param name="building">The new Building.</param>
+        public void ChangeBuilding(BaseBuilding building)
+        {
+            var b = Instantiate(building, Building.transform.position, Quaternion.identity);
+            Destroy(Building.gameObject);
+            Building = b;
+        }
     }
 }
 
