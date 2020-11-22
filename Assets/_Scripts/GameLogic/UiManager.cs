@@ -128,6 +128,7 @@ public class UiManager : MonoBehaviour
 
     public void BackToTown()
     {
+        SoundManager.instance.ButtonSound();
         townUI.SetActive(!townUI.activeSelf);
         rocks.SetActive(!townUI.activeSelf);
         shop.SetActive(!townUI.activeSelf);
