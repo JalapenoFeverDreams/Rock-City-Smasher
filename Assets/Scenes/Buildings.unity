@@ -2192,7 +2192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6a6713bb4512d345b06fee19dd6d488, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: Decreases the click-interval of you automatic clicks from your houses.
+  text: Decreases the click-interval of your automatic clicks from your houses.
   frame: {fileID: 846799167}
   textFrame: {fileID: 183443735}
 --- !u!114 &1612262076
