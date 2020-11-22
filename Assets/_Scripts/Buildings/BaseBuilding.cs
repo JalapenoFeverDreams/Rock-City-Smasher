@@ -46,11 +46,29 @@
         /// </summary>
         protected virtual void UpgradeValues() { }
 
+        /// <summary>
+        /// This method downgrades the player values.
+        /// </summary>
+        protected virtual void DowngradeValues() { }
+
+        /// <summary>
+        /// Places a building.
+        /// </summary>
         public void PlaceBuilding()
         {
             BuildingManager.Instance.Buildings.Add(this);
 
             UpgradeValues();
+        }
+
+        /// <summary>
+        /// Picks up a building.
+        /// </summary>
+        public void PickupBuilding()
+        {
+            BuildingManager.Instance.Buildings.Remove(this);
+
+            DowngradeValues();
         }
     }
 }

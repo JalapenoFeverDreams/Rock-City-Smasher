@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 172215140, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: -8468672275783209942, guid: cd41d1b180351c24f97371c4262e7efb, type: 3}
     - target: {fileID: 393022279, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
       propertyPath: m_Text
       value: Street (2 $)
@@ -146,6 +150,10 @@ PrefabInstance:
       propertyPath: m_Text
       value: Farm (150 $) - (5 P)
       objectReference: {fileID: 0}
+    - target: {fileID: 1208570874, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 6013237146557956373, guid: f446713917a12b240ae379419453b1d0, type: 3}
     - target: {fileID: 1238520984, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
       propertyPath: m_Text
       value: House (50 $)
@@ -157,6 +165,14 @@ PrefabInstance:
     - target: {fileID: 1432274304, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1449018317, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 3230182921248572475, guid: bb5bb2a6c238c774db93e200a0ce2f0a, type: 3}
+    - target: {fileID: 1449018317, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 622673387617870521, guid: 663423c997c623b4ea3a864b8ca529db, type: 3}
       propertyPath: m_Enabled

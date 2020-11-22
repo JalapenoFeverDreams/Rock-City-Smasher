@@ -1,5 +1,6 @@
 ﻿namespace Scripts.Buildings
 {
+    using System.Linq;
     using UnityEngine;
 
     /// <summary>
@@ -27,6 +28,14 @@
         protected override void UpgradeValues()
         {
             BuildingManager.Instance.RandomUpgradesPossible = true;
+        }
+
+        protected override void DowngradeValues()
+        {
+            if(!BuildingManager.Instance.Buildings.Any(x => x.BuildingType == this.BuildingType))
+            {
+                BuildingManager.Instance.RandomUpgradesPossible = false;
+            }
         }
     }
 }

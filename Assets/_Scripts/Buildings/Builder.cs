@@ -4,7 +4,7 @@
     using System.Linq;
 
     using UnityEngine;
-    
+
     /// <summary>
     /// Defines the <see cref="Builder"/> class.
     /// </summary>
@@ -36,32 +36,31 @@
 
         private void Build()
         {
-            if (m_CurrentBuilding)
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out var hit, Mathf.Infinity, m_RaycastLayerMask))
             {
-                if(Input.GetKeyDown(KeyCode.Escape))
-                {
-                    Destroy(m_CurrentBuilding.gameObject);
-                    GameManager.instance.Money += m_CurrentBuilding.Cost;
-                    m_CurrentBuilding = null;
-                    return;
-                }
+                var tile = hit.transform.GetComponent<Tile>();
 
-                if(Input.mouseScrollDelta.y > 0)
+                if (m_CurrentBuilding)
                 {
-                    m_CurrentBuilding.transform.eulerAngles += new Vector3(0, 90, 0);
-                }
-                else if(Input.mouseScrollDelta.y < 0)
-                {
-                    m_CurrentBuilding.transform.eulerAngles -= new Vector3(0, 90, 0);
-                }
-
-                if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out var hit, Mathf.Infinity, m_RaycastLayerMask))
-                {
-                    var tile = hit.transform.GetComponent<Tile>();
-                    if(!tile.Occupied)
+                    if (Input.GetKeyDown(KeyCode.Escape))
                     {
-                        
-                        if(m_CurrentBuilding.BuildingType == BuildingType.Street)
+                        Destroy(m_CurrentBuilding.gameObject);
+                        GameManager.instance.Money += m_CurrentBuilding.Cost;
+                        m_CurrentBuilding = null;
+                        return;
+                    }
+
+                    if (Input.mouseScrollDelta.y > 0)
+                    {
+                        m_CurrentBuilding.transform.eulerAngles += new Vector3(0, 90, 0);
+                    }
+                    else if (Input.mouseScrollDelta.y < 0)
+                    {
+                        m_CurrentBuilding.transform.eulerAngles -= new Vector3(0, 90, 0);
+                    }
+                    if (!tile.Occupied)
+                    {
+                        if (m_CurrentBuilding.BuildingType == BuildingType.Street)
                         {
                             m_CurrentBuilding = Instantiate(GetCorrectStreet(tile));
                         }
@@ -76,6 +75,18 @@
                             tile.Building = m_CurrentBuilding;
                             m_CurrentBuilding = null;
                         }
+                    }
+                }
+                else
+                {
+                    if (Input.GetMouseButtonDown(0) && tile.Occupied && tile.Building != null)
+                    {
+                        m_CurrentBuilding = tile.Building;
+                        tile.Building = null;
+                        tile.Occupied = false;
+                        GameManager.instance.SetBuildingCost(m_CurrentBuilding);
+                        m_CurrentBuilding.PickupBuilding();
+                        GameManager.instance.SetBuildingCost(m_CurrentBuilding);
                     }
                 }
             }

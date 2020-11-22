@@ -24,5 +24,13 @@
                 (house as HouseBuilding).WaitTimerForClicks *= HouseTimerIntervalDecreaseFactor;
             }
         }
+
+        protected override void DowngradeValues()
+        {
+            foreach (var house in BuildingManager.Instance.Buildings.Where(x => x.BuildingType == BuildingType.House))
+            {
+                (house as HouseBuilding).WaitTimerForClicks /= HouseTimerIntervalDecreaseFactor;
+            }
+        }
     }
 }

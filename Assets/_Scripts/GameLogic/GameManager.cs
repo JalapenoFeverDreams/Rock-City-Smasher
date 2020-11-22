@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     public float hitMultiplierAdd = 1;
     public int randomDecrease = 7;
 
-    private float money = 0;
+    private float money = 1000;
     private int m_PeopleCount = 0;
     private int m_PeopleLimit = 0;
 

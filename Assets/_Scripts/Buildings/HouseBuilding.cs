@@ -12,6 +12,8 @@
         [SerializeField] private float m_WaitTimerForClicks = 5;
         [SerializeField] private int m_PeopleLimitIncrease = 5;
 
+        private Coroutine m_Coroutine;
+
         /// <summary>
         /// Gets or sets the Wait Timer For Clicks.
         /// </summary>
@@ -32,9 +34,23 @@
         /// <inheritdoc />
         protected override void UpgradeValues()
         {
-            GameManager.instance.PeopleLimit += 5;
+            GameManager.instance.PeopleLimit += PeopleLimitIncrease;
 
-            this.StartCoroutine(StartAutomaticClicks());
+            m_Coroutine = StartCoroutine(StartAutomaticClicks());
+        }
+
+        /// <inheritdoc/>
+        protected override void DowngradeValues()
+        {
+            if(GameManager.instance.PeopleLimit >= PeopleLimitIncrease)
+            {
+                GameManager.instance.PeopleLimit -= PeopleLimitIncrease;
+            }
+
+            if(m_Coroutine != null)
+            {
+                StopCoroutine(m_Coroutine);
+            }
         }
 
         private IEnumerator StartAutomaticClicks()

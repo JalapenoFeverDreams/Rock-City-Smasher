@@ -25,6 +25,15 @@
         {
             GameManager.instance.PeopleCount += PeopleCountIncrease;
         }
+
+        /// <inheritdoc>/>
+        protected override void DowngradeValues()
+        {
+            if(GameManager.instance.PeopleCount >= PeopleCountIncrease)
+            {
+                GameManager.instance.PeopleCount -= PeopleCountIncrease;
+            }
+        }
     }
 }
 
